@@ -26,6 +26,10 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+  ul {
+    list-style: none;
+  }
+
   button {
     cursor: pointer;
   }
