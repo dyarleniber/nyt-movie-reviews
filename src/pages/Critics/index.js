@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Container } from './styles';
+
 export default function Critics() {
-  return <h1>Critics</h1>;
+  return <Container>Critics</Container>;
 }

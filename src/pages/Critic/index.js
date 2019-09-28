@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Container } from './styles';
+
 const Critic = ({ match }) => {
   const criticName = decodeURIComponent(match.params.name);
 
-  return <h1>{`Critic ${criticName}`}</h1>;
+  return <Container>{`Critic ${criticName}`}</Container>;
 };
 
 Critic.propTypes = {

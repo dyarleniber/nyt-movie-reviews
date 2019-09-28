@@ -1,5 +1,14 @@
 import React from 'react';
 
+import { Container, Filter } from './styles';
+
 export default function Reviews() {
-  return <h1>Reviews</h1>;
+  return (
+    <Container>
+      <Filter>
+        Filters - <button type="button"> Search </button>
+      </Filter>
+      Reviews
+    </Container>
+  );
 }
