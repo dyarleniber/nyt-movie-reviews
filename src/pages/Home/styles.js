@@ -42,7 +42,6 @@ export const Option = styled(Link)`
 
   span {
     display: block;
-    margin-top: 3px;
     color: #999;
     margin-top: 30px;
   }
