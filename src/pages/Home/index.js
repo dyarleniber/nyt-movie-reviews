@@ -13,8 +13,9 @@ export default function Home() {
           <strong>Reviews</strong>
           <img src={reviewLogo} alt="ReviewLogo" />
           <span>
-            Search New York Times movie reviews by keyword and opening date and
-            filter by Critics&quot; Picks.
+            Search New York Times movie reviews by keyword and filter by
+            Critic’s Pick and Reviewer. Supports ordering results by-title,
+            by-publication-date, or by-opening-date.
           </span>
         </Option>
 
