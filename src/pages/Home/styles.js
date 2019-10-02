@@ -15,7 +15,7 @@ export const Container = styled.div`
     margin-top: 30px;
 
     @media (min-width: 900px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 `;
