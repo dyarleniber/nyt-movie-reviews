@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { darken } from 'polished';
 
@@ -45,7 +46,6 @@ export const Options = styled.div`
       display: block;
       margin-top: 2px;
       font-size: 12px;
-      color: #999;
       font-weight: bold;
 
       &:hover {
@@ -53,4 +53,8 @@ export const Options = styled.div`
       }
     }
   }
+`;
+
+export const Option = styled(Link)`
+  color: ${props => (props.current ? darken(0.5, '#999') : '#999')};
 `;

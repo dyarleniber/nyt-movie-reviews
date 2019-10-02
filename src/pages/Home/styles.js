@@ -11,9 +11,12 @@ export const Container = styled.div`
 
   ul {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
     margin-top: 30px;
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 `;
 
@@ -23,6 +26,7 @@ export const Option = styled(Link)`
   color: #000000;
   background: #fff;
   text-align: center;
+  min-height: 220px;
 
   &:hover {
     color: #000000;

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "date-fns": "^2.4.1",
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",

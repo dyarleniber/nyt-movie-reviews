@@ -1,28 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 
-import movieLogo from '../../assets/images/movie-logo.svg';
-import nytLogo from '../../assets/images/nyt-logo.svg';
+import nytLogo from '../../assets/images/nyt.svg';
 
-import { Container, Content, Options } from './styles';
+import { Container, Content, Options, Option } from './styles';
 
-const Header = () => {
+const Header = props => {
+  const {
+    location: { pathname },
+  } = props;
+
   return (
     <Container>
       <Content>
         <nav>
           <Link to="/">
-            <img src={movieLogo} alt="MovieLogo" />
+            <img src={nytLogo} alt="NYTLogo" />
           </Link>
         </nav>
-
-        <img src={nytLogo} alt="NYTLogo" />
 
         <aside>
           <Options>
             <div>
-              <Link to="/reviews">Reviews</Link>
-              <Link to="/critics">Critics</Link>
+              <Option to="/reviews" current={pathname === '/reviews'}>
+                Reviews
+              </Option>
+              <Option to="/critics" current={pathname === '/critics'}>
+                Critics
+              </Option>
+              <Option to="/favorites" current={pathname === '/favorites'}>
+                Favorites
+              </Option>
             </div>
           </Options>
         </aside>
@@ -31,4 +40,10 @@ const Header = () => {
   );
 };
 
-export default Header;
+Header.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default withRouter(Header);
