@@ -30,30 +30,30 @@ export default function Reviews() {
       </Header>
       <Container>
         <Review
-          Reviewtitle="The Irishman"
+          ReviewTitle="The Irishman"
           ReviewDescription="Robert De Niro, Al Pacino and Joe Pesci star in Martin Scorsese’s monumental, elegiac tale of violence, betrayal, memory and loss. It’s the opening-night movie at the New York Film Festival."
           ReviewDate={new Date()}
           ReviewImage="https://static01.nyt.com/images/2019/09/27/arts/27irishman1/27irishman1-mediumThreeByTwo210.jpg"
-          Reviewurl="#url"
+          ReviewUrl="#url"
           CriticName="Critic name"
-          CriticPick
+          CriticsPick
         />
         <Review
-          Reviewtitle="The Irishman"
+          ReviewTitle="The Irishman"
           ReviewDescription="Robert De Niro, Al Pacino and Joe Pesci star in Martin Scorsese’s monumental, elegiac tale of violence, betrayal, memory and loss. It’s the opening-night movie at the New York Film Festival."
           ReviewDate={new Date()}
           ReviewImage="https://static01.nyt.com/images/2019/09/27/arts/27irishman1/27irishman1-mediumThreeByTwo210.jpg"
-          Reviewurl="#url"
+          ReviewUrl="#url"
           CriticName="Critic name"
         />
         <Review
-          Reviewtitle="The Irishman"
+          ReviewTitle="The Irishman"
           ReviewDescription="Robert De Niro, Al Pacino and Joe Pesci star in Martin Scorsese’s monumental, elegiac tale of violence, betrayal, memory and loss. It’s the opening-night movie at the New York Film Festival."
           ReviewDate={new Date()}
           ReviewImage="https://static01.nyt.com/images/2019/09/27/arts/27irishman1/27irishman1-mediumThreeByTwo210.jpg"
-          Reviewurl="#url"
+          ReviewUrl="#url"
           CriticName="Critic name"
-          CriticPick
+          CriticsPick
         />
       </Container>
     </>

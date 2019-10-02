@@ -8,20 +8,20 @@ import { Container } from './styles';
 
 const Review = props => {
   const {
-    Reviewtitle,
+    ReviewTitle,
     ReviewDescription,
     ReviewDate,
     ReviewImage,
-    Reviewurl,
+    ReviewUrl,
     CriticName,
-    CriticPick,
+    CriticsPick,
   } = props;
 
   return (
     <Container href="#a" target="_blank">
       <div>
-        <strong>{Reviewtitle}</strong>
-        {CriticPick && (
+        <strong>{ReviewTitle}</strong>
+        {CriticsPick && (
           <small>
             <img src={checkLogo} alt="NYTCriticsPick" />
             NYT Critic Pick
@@ -30,7 +30,7 @@ const Review = props => {
         <small>{format(ReviewDate, 'P')}</small>
         <small>By {CriticName}</small>
         <span>{ReviewDescription}</span>
-        <a href={Reviewurl} target="_blank" rel="noopener noreferrer">
+        <a href={ReviewUrl} target="_blank" rel="noopener noreferrer">
           Read review
         </a>
       </div>
@@ -40,17 +40,17 @@ const Review = props => {
 };
 
 Review.propTypes = {
-  Reviewtitle: PropTypes.string.isRequired,
+  ReviewTitle: PropTypes.string.isRequired,
   ReviewDescription: PropTypes.string.isRequired,
   ReviewDate: PropTypes.instanceOf(Date).isRequired,
   ReviewImage: PropTypes.string.isRequired,
-  Reviewurl: PropTypes.string.isRequired,
+  ReviewUrl: PropTypes.string.isRequired,
   CriticName: PropTypes.string.isRequired,
-  CriticPick: PropTypes.bool,
+  CriticsPick: PropTypes.bool,
 };
 
 Review.defaultProps = {
-  CriticPick: false,
+  CriticsPick: false,
 };
 
 export default Review;
