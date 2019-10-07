@@ -2,6 +2,7 @@ import React from 'react';
 
 import reviewLogo from '../../assets/images/review.svg';
 import criticLogo from '../../assets/images/critic.svg';
+import favoriteLogo from '../../assets/images/favorite.svg';
 
 import { Container, Option } from './styles';
 
@@ -26,6 +27,12 @@ export default function Home() {
             Get New York Times movie critics. You can either specify the
             reviewer name.
           </span>
+        </Option>
+
+        <Option to="/favorites">
+          <strong>Favorites</strong>
+          <img src={favoriteLogo} alt="favoriteLogo" />
+          <span>Favorites New York Times movie reviews.</span>
         </Option>
       </ul>
     </Container>

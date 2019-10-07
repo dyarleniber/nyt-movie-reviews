@@ -4,9 +4,12 @@ import api from '../../services/api';
 import apiConfig from '../../config/api';
 
 import Loading from '../../components/Loading';
+import NotFound from '../../components/NotFound';
 import Review from '../../components/Review';
 
 import { Header, Filter, Container } from './styles';
+
+import emptyImageLogo from '../../assets/images/empty-image.svg';
 
 export default function Reviews() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,10 +29,11 @@ export default function Reviews() {
         );
 
         setReviews(response.data.results);
-        setIsLoading(false);
       } catch (err) {
-        setIsLoading(false);
+        setReviews([]);
       }
+
+      setIsLoading(false);
     }
 
     loadReviews();
@@ -128,19 +132,27 @@ export default function Reviews() {
           </form>
         </Filter>
       </Header>
-      <Container>
-        {reviews.map(review => (
-          <Review
-            ReviewTitle={review.display_title}
-            ReviewDescription={review.summary_short}
-            ReviewDate={new Date(review.publication_date)}
-            ReviewImage={review.multimedia.src}
-            ReviewUrl={review.link.url}
-            CriticName={review.byline}
-            CriticsPick={!!review.critics_pick}
-          />
-        ))}
-      </Container>
+      {!reviews.length ? (
+        <NotFound Message="No records found" />
+      ) : (
+        <Container>
+          {reviews.map(review => {
+            const image = review.multimedia ? review.multimedia.src : null;
+
+            return (
+              <Review
+                ReviewTitle={review.display_title}
+                ReviewDescription={review.summary_short}
+                ReviewDate={new Date(review.publication_date)}
+                ReviewImage={image || emptyImageLogo}
+                ReviewUrl={review.link.url}
+                CriticName={review.byline}
+                CriticsPick={!!review.critics_pick}
+              />
+            );
+          })}
+        </Container>
+      )}
     </>
   );
 }

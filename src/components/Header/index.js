@@ -29,6 +29,9 @@ const Header = props => {
               <Option to="/critics" current={pathname === '/critics'}>
                 Critics
               </Option>
+              <Option to="/favorites" current={pathname === '/favorites'}>
+                Favorites
+              </Option>
             </div>
           </Options>
         </aside>

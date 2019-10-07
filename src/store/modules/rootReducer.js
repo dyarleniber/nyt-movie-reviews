@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 
-// import auth from './auth/reducer';
-// import user from './user/reducer';
+import favorites from './favorites/reducer';
 
-export default combineReducers({});
+export default combineReducers({ favorites });
