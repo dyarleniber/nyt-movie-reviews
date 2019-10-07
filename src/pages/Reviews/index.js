@@ -1,16 +1,97 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
+import api from '../../services/api';
+import apiConfig from '../../config/api';
+
+import Loading from '../../components/Loading';
 import Review from '../../components/Review';
 
 import { Header, Filter, Container } from './styles';
 
 export default function Reviews() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [filters, setFilters] = useState({
+    order: null,
+    query: null,
+    reviewer: null,
+    criticsPick: false,
+  });
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    async function loadReviews() {
+      try {
+        const response = await api.get(
+          `reviews/search.json?api-key=${apiConfig.key}`
+        );
+
+        setReviews(response.data.results);
+        setIsLoading(false);
+      } catch (err) {
+        setIsLoading(false);
+      }
+    }
+
+    loadReviews();
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  function handleFilterChange(e) {
+    e.preventDefault();
+
+    const {
+      target: { name, checked, value },
+    } = e;
+
+    if (['criticsPick'].includes(name)) {
+      setFilters({
+        ...filters,
+        [name]: checked,
+      });
+    } else {
+      setFilters({
+        ...filters,
+        [name]: value,
+      });
+    }
+  }
+
+  async function handleFilterSubmit(e) {
+    e.preventDefault();
+
+    setIsLoading(true);
+
+    try {
+      const { order, query, reviewer, criticsPick } = filters;
+
+      const response = await api.get(
+        `reviews/search.json?api-key=${apiConfig.key}${
+          criticsPick ? '&critics-pick=Y' : ''
+        }${order ? `&order=${order}` : ''}${query ? `&query=${query}` : ''}${
+          reviewer ? `&reviewer=${reviewer}` : ''
+        }`
+      );
+
+      setReviews(response.data.results);
+      setIsLoading(false);
+    } catch (err) {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <>
       <Header>
         <Filter>
-          <form autoComplete="off">
-            <select name="order">
+          <form autoComplete="off" onSubmit={handleFilterSubmit}>
+            <select
+              name="order"
+              onChange={handleFilterChange}
+              value={filters.order}
+            >
               <option value="">Order</option>
               <option value="by-title">Order by Title</option>
               <option value="by-publication-date">
@@ -18,10 +99,29 @@ export default function Reviews() {
               </option>
               <option value="by-opening-date">Order by Opening date</option>
             </select>
-            <input type="text" name="query" placeholder="Keyword" />
-            <input type="text" name="reviewer" placeholder="Reviewer" />
-            <label htmlFor="criticspick">
-              <input type="checkbox" id="criticspick" name="criticspick" />
+            <input
+              type="text"
+              name="query"
+              placeholder="Keyword"
+              onChange={handleFilterChange}
+              value={filters.query}
+            />
+            <input
+              type="text"
+              name="reviewer"
+              placeholder="Reviewer"
+              onChange={handleFilterChange}
+              value={filters.reviewer}
+            />
+            <label htmlFor="criticsPick">
+              <input
+                type="checkbox"
+                id="criticsPick"
+                name="criticsPick"
+                onChange={handleFilterChange}
+                defaultChecked={filters.criticsPick}
+                checked={filters.criticsPick}
+              />
               <span>NYT Critic’s Pick</span>
             </label>
             <button type="submit">Search</button>
@@ -29,32 +129,17 @@ export default function Reviews() {
         </Filter>
       </Header>
       <Container>
-        <Review
-          ReviewTitle="The Irishman"
-          ReviewDescription="Robert De Niro, Al Pacino and Joe Pesci star in Martin Scorsese’s monumental, elegiac tale of violence, betrayal, memory and loss. It’s the opening-night movie at the New York Film Festival."
-          ReviewDate={new Date()}
-          ReviewImage="https://static01.nyt.com/images/2019/09/27/arts/27irishman1/27irishman1-mediumThreeByTwo210.jpg"
-          ReviewUrl="#url"
-          CriticName="Critic name"
-          CriticsPick
-        />
-        <Review
-          ReviewTitle="The Irishman"
-          ReviewDescription="Robert De Niro, Al Pacino and Joe Pesci star in Martin Scorsese’s monumental, elegiac tale of violence, betrayal, memory and loss. It’s the opening-night movie at the New York Film Festival."
-          ReviewDate={new Date()}
-          ReviewImage="https://static01.nyt.com/images/2019/09/27/arts/27irishman1/27irishman1-mediumThreeByTwo210.jpg"
-          ReviewUrl="#url"
-          CriticName="Critic name"
-        />
-        <Review
-          ReviewTitle="The Irishman"
-          ReviewDescription="Robert De Niro, Al Pacino and Joe Pesci star in Martin Scorsese’s monumental, elegiac tale of violence, betrayal, memory and loss. It’s the opening-night movie at the New York Film Festival."
-          ReviewDate={new Date()}
-          ReviewImage="https://static01.nyt.com/images/2019/09/27/arts/27irishman1/27irishman1-mediumThreeByTwo210.jpg"
-          ReviewUrl="#url"
-          CriticName="Critic name"
-          CriticsPick
-        />
+        {reviews.map(review => (
+          <Review
+            ReviewTitle={review.display_title}
+            ReviewDescription={review.summary_short}
+            ReviewDate={new Date(review.publication_date)}
+            ReviewImage={review.multimedia.src}
+            ReviewUrl={review.link.url}
+            CriticName={review.byline}
+            CriticsPick={!!review.critics_pick}
+          />
+        ))}
       </Container>
     </>
   );

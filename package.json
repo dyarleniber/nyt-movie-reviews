@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
     "date-fns": "^2.4.1",
     "immer": "^4.0.0",
     "polished": "^3.4.1",

@@ -1,3 +1,3 @@
 export default {
-  key: process.env.API_KEY,
+  key: 'IL5jD4w0aSHyYu1MeAKKf1MB8GWaGPzp', // TODO dotEnv
 };
