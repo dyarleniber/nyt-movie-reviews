@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -37,6 +38,7 @@ const Reviews = ({ match: { params } }) => {
 
         setReviews(response.data.results);
       } catch (err) {
+        toast.error('Failed to load reviews');
         setReviews([]);
       }
 
@@ -89,6 +91,7 @@ const Reviews = ({ match: { params } }) => {
       setReviews(response.data.results);
       setIsLoading(false);
     } catch (err) {
+      toast.error('Failed to load reviews');
       setIsLoading(false);
     }
   }

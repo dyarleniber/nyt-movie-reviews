@@ -1,15 +1,13 @@
 import React from 'react';
 
-import { LoadingWrapper, DotWrapper, Dot } from './styles';
+import { Container } from './styles';
+
+import loadingGif from '../../assets/images/loading.gif';
 
 export default function PageLoading() {
   return (
-    <LoadingWrapper>
-      <DotWrapper>
-        <Dot delay="0s" />
-        <Dot delay=".1s" />
-        <Dot delay=".2s" />
-      </DotWrapper>
-    </LoadingWrapper>
+    <Container>
+      <img src={loadingGif} alt="LoadingGif" />
+    </Container>
   );
 }

@@ -18,7 +18,7 @@ function App() {
         <Header />
         <Routes />
         <GlobalStyle />
-        <ToastContainer autoClose={3000} />
+        <ToastContainer autoClose={1500} />
       </BrowserRouter>
     </Provider>
   );
