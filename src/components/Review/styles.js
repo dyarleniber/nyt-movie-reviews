@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.a`
+export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,15 +9,9 @@ export const Container = styled.a`
   margin-top: 15px;
   border-radius: 4px;
   background: #fff;
-  color: #000000;
 
   &:hover {
-    color: #000000;
     background: ${darken(0.04, '#fff')};
-
-    a {
-      color: ${darken(0.5, '#999')};
-    }
   }
 
   div {
@@ -52,6 +46,20 @@ export const Container = styled.a`
       margin-top: 15px;
       color: #999;
       font-weight: bold;
+
+      &:hover {
+        color: ${darken(0.5, '#999')};
+      }
+    }
+
+    button {
+      display: block;
+      margin-top: 5px;
+      color: #999;
+      background-color: transparent;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
 
       &:hover {
         color: ${darken(0.5, '#999')};

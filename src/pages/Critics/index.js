@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import apiConfig from '../../config/api';
 
-import Loading from '../../components/Loading';
+import PageLoading from '../../components/PageLoading';
 
 import { Container, CriticList } from './styles';
 
@@ -31,7 +31,7 @@ export default function Critics() {
   }, []);
 
   if (isLoading) {
-    return <Loading />;
+    return <PageLoading />;
   }
 
   return (
@@ -43,13 +43,13 @@ export default function Critics() {
               ? critic.multimedia.resource.src
               : null;
           return (
-            <li>
+            <li key={critic.display_name}>
               <div>
                 <img src={image || emptyCriticLogo} alt="critic" />
               </div>
               <strong>{critic.display_name}</strong>
               <small>{critic.bio}</small>
-              <a href="#a">See movie reviews</a>
+              <a href={`/reviews/${critic.display_name}`}>See movie reviews</a>
             </li>
           );
         })}

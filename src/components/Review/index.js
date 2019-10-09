@@ -1,6 +1,15 @@
-import React from 'react';
+import bcrypt from 'bcryptjs';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
+
+import ComponentLoading from '../ComponentLoading';
+
+import {
+  addToFavoritesRequest,
+  removeFromFavorites,
+} from '../../store/modules/favorites/actions';
 
 import checkLogo from '../../assets/images/check.svg';
 
@@ -17,8 +26,35 @@ const Review = props => {
     CriticsPick,
   } = props;
 
+  const dispatch = useDispatch();
+
+  const [loading, setLoading] = useState(false);
+
+  const favoriteExists = useSelector(state => {
+    return state.favorites.favoritesList.find(favorite => {
+      return bcrypt.compareSync(`${ReviewTitle}${CriticName}`, favorite.id);
+    });
+  });
+
+  const favoritesLoading = useSelector(state => state.favorites.loading);
+
+  useEffect(() => {
+    if (!favoritesLoading) {
+      setLoading(favoritesLoading);
+    }
+  }, [favoritesLoading]);
+
+  function handleAddFavorites() {
+    setLoading(true);
+    dispatch(addToFavoritesRequest(ReviewTitle, CriticName));
+  }
+
+  function handleRemoveFavorites() {
+    dispatch(removeFromFavorites(ReviewTitle, CriticName));
+  }
+
   return (
-    <Container href="#a" target="_blank">
+    <Container>
       <div>
         <strong>{ReviewTitle}</strong>
         {CriticsPick && (
@@ -33,6 +69,19 @@ const Review = props => {
         <a href={ReviewUrl} target="_blank" rel="noopener noreferrer">
           Read review
         </a>
+        {loading ? (
+          <button type="button">
+            <ComponentLoading />
+          </button>
+        ) : favoriteExists ? (
+          <button type="button" onClick={handleRemoveFavorites}>
+            Remove from favorites
+          </button>
+        ) : (
+          <button type="button" onClick={handleAddFavorites}>
+            Add to favorites
+          </button>
+        )}
       </div>
       <img src={ReviewImage} alt="MovieImage" />
     </Container>

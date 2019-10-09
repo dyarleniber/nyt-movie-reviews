@@ -18,9 +18,9 @@ export function addToFavoritesFailure() {
   };
 }
 
-export function removeFromFavorites(id) {
+export function removeFromFavorites(reviewTitle, criticName) {
   return {
     type: '@favorites/REMOVE',
-    id,
+    payload: { reviewTitle, criticName },
   };
 }

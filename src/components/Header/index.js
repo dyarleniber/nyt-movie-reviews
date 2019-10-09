@@ -23,13 +23,16 @@ const Header = props => {
         <aside>
           <Options>
             <div>
-              <Option to="/reviews" current={pathname === '/reviews'}>
+              <Option to="/reviews" current={pathname === '/reviews' ? 1 : 0}>
                 Reviews
               </Option>
-              <Option to="/critics" current={pathname === '/critics'}>
+              <Option to="/critics" current={pathname === '/critics' ? 1 : 0}>
                 Critics
               </Option>
-              <Option to="/favorites" current={pathname === '/favorites'}>
+              <Option
+                to="/favorites"
+                current={pathname === '/favorites' ? 1 : 0}
+              >
                 Favorites
               </Option>
             </div>

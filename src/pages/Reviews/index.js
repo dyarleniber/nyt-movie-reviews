@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import api from '../../services/api';
 import apiConfig from '../../config/api';
 
-import Loading from '../../components/Loading';
+import PageLoading from '../../components/PageLoading';
 import NotFound from '../../components/NotFound';
 import Review from '../../components/Review';
 
@@ -11,21 +12,27 @@ import { Header, Filter, Container } from './styles';
 
 import emptyImageLogo from '../../assets/images/empty-image.svg';
 
-export default function Reviews() {
+const Reviews = ({ match: { params } }) => {
+  const { critic: criticParam } = params;
+
   const [isLoading, setIsLoading] = useState(true);
   const [filters, setFilters] = useState({
-    order: null,
-    query: null,
-    reviewer: null,
-    criticsPick: false,
+    order: '',
+    query: '',
+    reviewer: criticParam,
+    criticsPick: '',
   });
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     async function loadReviews() {
       try {
+        const { reviewer } = filters;
+
         const response = await api.get(
-          `reviews/search.json?api-key=${apiConfig.key}`
+          `reviews/search.json?api-key=${apiConfig.key}${
+            reviewer ? `&reviewer=${reviewer}` : ''
+          }`
         );
 
         setReviews(response.data.results);
@@ -40,7 +47,7 @@ export default function Reviews() {
   }, []);
 
   if (isLoading) {
-    return <Loading />;
+    return <PageLoading />;
   }
 
   function handleFilterChange(e) {
@@ -123,7 +130,6 @@ export default function Reviews() {
                 id="criticsPick"
                 name="criticsPick"
                 onChange={handleFilterChange}
-                defaultChecked={filters.criticsPick}
                 checked={filters.criticsPick}
               />
               <span>NYT Critic’s Pick</span>
@@ -138,14 +144,16 @@ export default function Reviews() {
         <Container>
           {reviews.map(review => {
             const image = review.multimedia ? review.multimedia.src : null;
+            const url = review.link ? review.link.url : null;
 
             return (
               <Review
+                key={review.display_title}
                 ReviewTitle={review.display_title}
                 ReviewDescription={review.summary_short}
                 ReviewDate={new Date(review.publication_date)}
                 ReviewImage={image || emptyImageLogo}
-                ReviewUrl={review.link.url}
+                ReviewUrl={url}
                 CriticName={review.byline}
                 CriticsPick={!!review.critics_pick}
               />
@@ -155,4 +163,22 @@ export default function Reviews() {
       )}
     </>
   );
-}
+};
+
+Reviews.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      critic: PropTypes.string,
+    }),
+  }),
+};
+
+Reviews.defaultProps = {
+  match: {
+    params: {
+      critic: null,
+    },
+  },
+};
+
+export default Reviews;

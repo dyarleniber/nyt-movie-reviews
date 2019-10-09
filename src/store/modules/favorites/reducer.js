@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 import produce from 'immer';
 
 const INITIAL_STATE = {
@@ -30,10 +31,10 @@ export default function favorites(state = INITIAL_STATE, action) {
         break;
       }
       case '@favorites/REMOVE': {
-        const { id } = action.payload;
+        const { reviewTitle, criticName } = action.payload;
 
-        const index = draft.favoritesList.findIndex(
-          element => element.id === id
+        const index = draft.favoritesList.findIndex(element =>
+          bcrypt.compareSync(`${reviewTitle}${criticName}`, element.id)
         );
 
         if (index >= 0) {

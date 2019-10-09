@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import { darken } from 'polished';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 export default createGlobalStyle`
   * {
     margin: 0;

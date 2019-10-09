@@ -1,30 +1,44 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
+import PageLoading from '../../components/PageLoading';
+import NotFound from '../../components/NotFound';
 import Review from '../../components/Review';
 
 import { Container } from './styles';
 
-export default function Reviews() {
-  return (
-    <Container>
-      <Review
-        ReviewTitle="The Irishman"
-        ReviewDescription="Robert De Niro, Al Pacino and Joe Pesci star in Martin Scorsese’s monumental, elegiac tale of violence, betrayal, memory and loss. It’s the opening-night movie at the New York Film Festival."
-        ReviewDate={new Date()}
-        ReviewImage="https://static01.nyt.com/images/2019/09/27/arts/27irishman1/27irishman1-mediumThreeByTwo210.jpg"
-        ReviewUrl="#url"
-        CriticName="Critic name"
-        CriticsPick
-      />
+import emptyImageLogo from '../../assets/images/empty-image.svg';
 
-      <Review
-        ReviewTitle="The Irishman"
-        ReviewDescription="Robert De Niro, Al Pacino and Joe Pesci star in Martin Scorsese’s monumental, elegiac tale of violence, betrayal, memory and loss. It’s the opening-night movie at the New York Film Festival."
-        ReviewDate={new Date()}
-        ReviewImage="https://static01.nyt.com/images/2019/09/27/arts/27irishman1/27irishman1-mediumThreeByTwo210.jpg"
-        ReviewUrl="#url"
-        CriticName="Critic name"
-      />
-    </Container>
+export default function Reviews() {
+  const favoritesList = useSelector(state => state.favorites.favoritesList);
+  const loading = useSelector(state => state.favorites.loading);
+
+  if (loading) {
+    return <PageLoading />;
+  }
+
+  return (
+    <>
+      {!favoritesList.length ? (
+        <NotFound Message="No records found" />
+      ) : (
+        <Container>
+          {favoritesList.map(favorite => {
+            return (
+              <Review
+                key={favorite.reviewTitle}
+                ReviewTitle={favorite.reviewTitle}
+                ReviewDescription={favorite.reviewDescription}
+                ReviewDate={new Date(favorite.reviewDate)}
+                ReviewImage={favorite.reviewImage || emptyImageLogo}
+                ReviewUrl={favorite.reviewUrl}
+                CriticName={favorite.criticName}
+                CriticsPick={!!favorite.criticsPick}
+              />
+            );
+          })}
+        </Container>
+      )}
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs';
+import { toast } from 'react-toastify';
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 
 import api from '../../../services/api';
@@ -17,18 +18,28 @@ export function* addToFavorites({ payload }) {
 
     const result = response.data.results[0];
 
+    const reviewTitle = result.display_title;
+    const criticName = result.byline;
+    const id = bcrypt.hashSync(`${reviewTitle}${criticName}`, 8);
+    const image = result.multimedia ? result.multimedia.src : null;
+    const url = result.link ? result.link.url : null;
+
     const review = {};
-    review.id = bcrypt.hashSync(`${query}${reviewer}`, 8);
-    review.reviewTitle = result.display_title;
+    review.id = id;
+    review.reviewTitle = reviewTitle;
     review.reviewDescription = result.summary_short;
     review.reviewDate = new Date(result.publication_date);
-    review.reviewImage = result.multimedia.src;
-    review.reviewUrl = result.link.url;
-    review.criticName = result.byline;
+    review.reviewImage = image;
+    review.reviewUrl = url;
+    review.criticName = criticName;
     review.criticsPick = !!result.critics_pick;
+
+    toast.success(`${review.reviewTitle} added to favorites`);
 
     yield put(addToFavoritesSuccess(review));
   } catch (err) {
+    toast.error('Failed to add to favorites');
+
     yield put(addToFavoritesFailure());
   }
 }

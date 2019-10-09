@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Content, DotWrapper, Dot } from './styles';
 
-export default function LoadingDots() {
+export default function PageLoading() {
   return (
     <Container>
       <Content>
