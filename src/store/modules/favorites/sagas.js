@@ -1,22 +1,16 @@
 import bcrypt from 'bcryptjs';
 import { toast } from 'react-toastify';
-import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { takeLatest, put, all } from 'redux-saga/effects';
 
-import api from '../../../services/api';
-import apiConfig from '../../../config/api';
+import GetReviewsService from '../../../services/GetReviewsService';
 
 import { addToFavoritesSuccess, addToFavoritesFailure } from './actions';
 
 export function* addToFavorites({ payload }) {
-  const { query, reviewer } = payload;
-
   try {
-    const response = yield call(
-      api.get,
-      `reviews/search.json?query=${query}&reviewer=${reviewer}&api-key=${apiConfig.key}`
-    );
+    const response = yield GetReviewsService.constructor.run({ ...payload });
 
-    const result = response.data.results[0];
+    const result = response.data[0];
 
     const reviewTitle = result.display_title;
     const criticName = result.byline;

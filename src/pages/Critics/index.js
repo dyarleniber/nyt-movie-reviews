@@ -1,8 +1,7 @@
 import { toast } from 'react-toastify';
 import React, { useState, useEffect } from 'react';
 
-import api from '../../services/api';
-import apiConfig from '../../config/api';
+import GetCriticsService from '../../services/GetCriticsService';
 
 import PageLoading from '../../components/PageLoading';
 import NotFound from '../../components/NotFound';
@@ -17,14 +16,12 @@ export default function Critics() {
 
   useEffect(() => {
     async function loadCritics() {
-      try {
-        const response = await api.get(
-          `critics/all.json?api-key=${apiConfig.key}`
-        );
+      const response = await GetCriticsService.constructor.run();
 
-        setCritics(response.data.results);
+      if (response.success) {
+        setCritics(response.data);
         setIsLoading(false);
-      } catch (err) {
+      } else {
         toast.error('Failed to load critics');
         setIsLoading(false);
       }

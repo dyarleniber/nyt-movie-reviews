@@ -2,8 +2,7 @@ import { toast } from 'react-toastify';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import api from '../../services/api';
-import apiConfig from '../../config/api';
+import GetReviewsService from '../../services/GetReviewsService';
 
 import PageLoading from '../../components/PageLoading';
 import NotFound from '../../components/NotFound';
@@ -27,17 +26,11 @@ const Reviews = ({ match: { params } }) => {
 
   useEffect(() => {
     async function loadReviews() {
-      try {
-        const { reviewer } = filters;
+      const response = await GetReviewsService.constructor.run({ ...filters });
 
-        const response = await api.get(
-          `reviews/search.json?api-key=${apiConfig.key}${
-            reviewer ? `&reviewer=${reviewer}` : ''
-          }`
-        );
-
-        setReviews(response.data.results);
-      } catch (err) {
+      if (response.success) {
+        setReviews(response.data);
+      } else {
         toast.error('Failed to load reviews');
         setReviews([]);
       }
@@ -77,20 +70,12 @@ const Reviews = ({ match: { params } }) => {
 
     setIsLoading(true);
 
-    try {
-      const { order, query, reviewer, criticsPick } = filters;
+    const response = await GetReviewsService.constructor.run({ ...filters });
 
-      const response = await api.get(
-        `reviews/search.json?api-key=${apiConfig.key}${
-          criticsPick ? '&critics-pick=Y' : ''
-        }${order ? `&order=${order}` : ''}${query ? `&query=${query}` : ''}${
-          reviewer ? `&reviewer=${reviewer}` : ''
-        }`
-      );
-
-      setReviews(response.data.results);
+    if (response.success) {
+      setReviews(response.data);
       setIsLoading(false);
-    } catch (err) {
+    } else {
       toast.error('Failed to load reviews');
       setIsLoading(false);
     }
