@@ -1,14 +1,13 @@
 import React from 'react';
 
 import { Container, Content } from './styles';
-
-import loadingGif from '../../assets/images/loading.gif';
+import Loading from '../Loading';
 
 export default function PageLoading() {
   return (
     <Container>
       <Content>
-        <img src={loadingGif} alt="LoadingGif" />
+        <Loading />
       </Content>
     </Container>
   );
