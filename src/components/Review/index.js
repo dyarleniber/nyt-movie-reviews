@@ -5,15 +5,12 @@ import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 
 import ComponentLoading from '../ComponentLoading';
-
 import {
   addToFavoritesRequest,
   removeFromFavorites,
 } from '../../store/modules/favorites/actions';
-
-import checkLogo from '../../assets/images/check.svg';
-
 import { Container } from './styles';
+import checkLogo from '../../assets/images/check.svg';
 
 const Review = props => {
   const {
@@ -31,7 +28,7 @@ const Review = props => {
   const [loading, setLoading] = useState(false);
 
   const favoriteExists = useSelector(state => {
-    return state.favorites.favoritesList.find(favorite => {
+    return state.favorites.favorites.find(favorite => {
       return bcrypt.compareSync(`${ReviewTitle}${CriticName}`, favorite.id);
     });
   });

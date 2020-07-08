@@ -1,49 +1,33 @@
-import { toast } from 'react-toastify';
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-
-import GetReviewsService from '../../services/GetReviewsService';
 
 import PageLoading from '../../components/PageLoading';
 import NotFound from '../../components/NotFound';
 import Review from '../../components/Review';
-
+import { searchReviewsRequest } from '../../store/modules/reviews/actions';
 import { Header, Filter, Container } from './styles';
-
 import emptyImageLogo from '../../assets/images/empty-image.svg';
 
 const Reviews = ({ match: { params } }) => {
   const { critic: criticParam } = params;
 
-  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+
   const [filters, setFilters] = useState({
     order: '',
     query: '',
     reviewer: criticParam,
     criticsPick: '',
   });
-  const [reviews, setReviews] = useState([]);
+
+  const loading = useSelector(state => state.reviews.loading);
+
+  const reviews = useSelector(state => state.reviews.reviews);
 
   useEffect(() => {
-    async function loadReviews() {
-      const response = await GetReviewsService.constructor.run({ ...filters });
-
-      if (response.success) {
-        setReviews(response.data);
-      } else {
-        toast.error('Failed to load reviews');
-        setReviews([]);
-      }
-
-      setIsLoading(false);
-    }
-
-    loadReviews();
+    dispatch(searchReviewsRequest(filters));
   }, []);
-
-  if (isLoading) {
-    return <PageLoading />;
-  }
 
   function handleFilterChange(e) {
     e.preventDefault();
@@ -68,17 +52,11 @@ const Reviews = ({ match: { params } }) => {
   async function handleFilterSubmit(e) {
     e.preventDefault();
 
-    setIsLoading(true);
+    dispatch(searchReviewsRequest(filters));
+  }
 
-    const response = await GetReviewsService.constructor.run({ ...filters });
-
-    if (response.success) {
-      setReviews(response.data);
-      setIsLoading(false);
-    } else {
-      toast.error('Failed to load reviews');
-      setIsLoading(false);
-    }
+  if (loading) {
+    return <PageLoading />;
   }
 
   return (

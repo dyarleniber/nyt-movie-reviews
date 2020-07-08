@@ -10,7 +10,7 @@ import { Container } from './styles';
 import emptyImageLogo from '../../assets/images/empty-image.svg';
 
 export default function Reviews() {
-  const favoritesList = useSelector(state => state.favorites.favoritesList);
+  const favorites = useSelector(state => state.favorites.favorites);
   const loading = useSelector(state => state.favorites.loading);
 
   if (loading) {
@@ -19,11 +19,11 @@ export default function Reviews() {
 
   return (
     <>
-      {!favoritesList.length ? (
+      {!favorites.length ? (
         <NotFound Message="No records found" />
       ) : (
         <Container>
-          {favoritesList.map(favorite => {
+          {favorites.map(favorite => {
             return (
               <Review
                 key={favorite.reviewTitle}

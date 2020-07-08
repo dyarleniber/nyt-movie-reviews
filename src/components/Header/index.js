@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
 import nytLogo from '../../assets/images/nyt.svg';
-
 import { Container, Content, Options, Option } from './styles';
 
 const Header = props => {

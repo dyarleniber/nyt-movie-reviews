@@ -3,7 +3,6 @@ import React from 'react';
 import reviewLogo from '../../assets/images/review.svg';
 import criticLogo from '../../assets/images/critic.svg';
 import favoriteLogo from '../../assets/images/favorite.svg';
-
 import { Container, Option } from './styles';
 
 export default function Home() {

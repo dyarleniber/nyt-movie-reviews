@@ -3,7 +3,7 @@ import produce from 'immer';
 
 const INITIAL_STATE = {
   loading: false,
-  favoritesList: [],
+  favorites: [],
 };
 
 export default function favorites(state = INITIAL_STATE, action) {
@@ -21,7 +21,7 @@ export default function favorites(state = INITIAL_STATE, action) {
 
         const { review } = action.payload;
 
-        draft.favoritesList.push(review);
+        draft.favorites.push(review);
 
         break;
       }
@@ -33,12 +33,12 @@ export default function favorites(state = INITIAL_STATE, action) {
       case '@favorites/REMOVE': {
         const { reviewTitle, criticName } = action.payload;
 
-        const index = draft.favoritesList.findIndex(element =>
+        const index = draft.favorites.findIndex(element =>
           bcrypt.compareSync(`${reviewTitle}${criticName}`, element.id)
         );
 
         if (index >= 0) {
-          draft.favoritesList.splice(index, 1);
+          draft.favorites.splice(index, 1);
         }
 
         break;
