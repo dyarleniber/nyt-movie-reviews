@@ -1,26 +1,13 @@
-export function addToFavoritesRequest(query, reviewer) {
+export function addToFavorites(review) {
   return {
-    type: '@favorites/ADD_REQUEST',
-    payload: { query, reviewer },
-  };
-}
-
-export function addToFavoritesSuccess(review) {
-  return {
-    type: '@favorites/ADD_SUCCESS',
+    type: '@favorites/ADD',
     payload: { review },
   };
 }
 
-export function addToFavoritesFailure() {
-  return {
-    type: '@favorites/ADD_FAILURE',
-  };
-}
-
-export function removeFromFavorites(reviewTitle, criticName) {
+export function removeFromFavorites(title, criticName) {
   return {
     type: '@favorites/REMOVE',
-    payload: { reviewTitle, criticName },
+    payload: { title, criticName },
   };
 }

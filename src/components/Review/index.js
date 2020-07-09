@@ -1,76 +1,75 @@
-import bcrypt from 'bcryptjs';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 
-import ComponentLoading from '../ComponentLoading';
 import {
-  addToFavoritesRequest,
+  addToFavorites,
   removeFromFavorites,
 } from '../../store/modules/favorites/actions';
 import { Container } from './styles';
 import checkLogo from '../../assets/images/check.svg';
+import emptyImageLogo from '../../assets/images/empty-image.svg';
 
 const Review = props => {
+  const { rawData } = props;
+
   const {
-    ReviewTitle,
-    ReviewDescription,
-    ReviewDate,
-    ReviewImage,
-    ReviewUrl,
-    CriticName,
-    CriticsPick,
-  } = props;
+    display_title: title,
+    summary_short: description,
+    publication_date: date,
+    multimedia: { src: image },
+    link: { url },
+    byline: criticName,
+    critics_pick: criticsPick,
+  } = rawData;
 
   const dispatch = useDispatch();
 
-  const [loading, setLoading] = useState(false);
-
-  const favoriteExists = useSelector(state => {
-    return state.favorites.favorites.find(favorite => {
-      return bcrypt.compareSync(`${ReviewTitle}${CriticName}`, favorite.id);
-    });
+  const [data] = useState({
+    title,
+    description,
+    date,
+    image: image || emptyImageLogo,
+    url,
+    criticName,
+    criticsPick: !!criticsPick,
   });
 
-  const favoritesLoading = useSelector(state => state.favorites.loading);
-
-  useEffect(() => {
-    if (!favoritesLoading) {
-      setLoading(favoritesLoading);
-    }
-  }, [favoritesLoading]);
-
   function handleAddFavorites() {
-    setLoading(true);
-    dispatch(addToFavoritesRequest(ReviewTitle, CriticName));
+    dispatch(addToFavorites(rawData));
   }
 
   function handleRemoveFavorites() {
-    dispatch(removeFromFavorites(ReviewTitle, CriticName));
+    dispatch(removeFromFavorites(data.title, data.criticName));
   }
+
+  const isFavorite = useSelector(state => {
+    return state.favorites.find(favorite => {
+      return (
+        favorite.display_title === data.title &&
+        favorite.byline === data.criticName
+      );
+    });
+  });
 
   return (
     <Container>
       <div>
-        <strong>{ReviewTitle}</strong>
-        {CriticsPick && (
+        <strong>{data.title}</strong>
+        {data.criticsPick && (
           <small>
             <img src={checkLogo} alt="NYTCriticsPick" />
             NYT Critic Pick
           </small>
         )}
-        <small>{format(ReviewDate, 'P')}</small>
-        <small>By {CriticName}</small>
-        <span>{ReviewDescription}</span>
-        <a href={ReviewUrl} target="_blank" rel="noopener noreferrer">
+        <small>{format(new Date(data.date), 'P')}</small>
+        <small>By {data.criticName}</small>
+        <span>{data.description}</span>
+        <a href={data.url} target="_blank" rel="noopener noreferrer">
           Read review
         </a>
-        {loading ? (
-          <button type="button">
-            <ComponentLoading />
-          </button>
-        ) : favoriteExists ? (
+        {isFavorite ? (
           <button type="button" onClick={handleRemoveFavorites}>
             Remove from favorites
           </button>
@@ -80,23 +79,25 @@ const Review = props => {
           </button>
         )}
       </div>
-      <img src={ReviewImage} alt="MovieImage" />
+      <img src={data.image} alt="MovieImage" />
     </Container>
   );
 };
 
 Review.propTypes = {
-  ReviewTitle: PropTypes.string.isRequired,
-  ReviewDescription: PropTypes.string.isRequired,
-  ReviewDate: PropTypes.instanceOf(Date).isRequired,
-  ReviewImage: PropTypes.string.isRequired,
-  ReviewUrl: PropTypes.string.isRequired,
-  CriticName: PropTypes.string.isRequired,
-  CriticsPick: PropTypes.bool,
-};
-
-Review.defaultProps = {
-  CriticsPick: false,
+  rawData: PropTypes.shape({
+    display_title: PropTypes.string.isRequired,
+    summary_short: PropTypes.string.isRequired,
+    publication_date: PropTypes.string.isRequired,
+    multimedia: PropTypes.shape({
+      src: PropTypes.string,
+    }),
+    link: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+    }),
+    byline: PropTypes.string.isRequired,
+    critics_pick: PropTypes.number,
+  }).isRequired,
 };
 
 export default Review;

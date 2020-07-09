@@ -7,7 +7,6 @@ import NotFound from '../../components/NotFound';
 import Review from '../../components/Review';
 import { searchReviewsRequest } from '../../store/modules/reviews/actions';
 import { Header, Filter, Container } from './styles';
-import emptyImageLogo from '../../assets/images/empty-image.svg';
 
 const Reviews = ({ match: { params } }) => {
   const { critic: criticParam } = params;
@@ -109,19 +108,10 @@ const Reviews = ({ match: { params } }) => {
       ) : (
         <Container>
           {reviews.map(review => {
-            const image = review.multimedia ? review.multimedia.src : null;
-            const url = review.link ? review.link.url : null;
-
             return (
               <Review
-                key={review.display_title}
-                ReviewTitle={review.display_title}
-                ReviewDescription={review.summary_short}
-                ReviewDate={new Date(review.publication_date)}
-                ReviewImage={image || emptyImageLogo}
-                ReviewUrl={url}
-                CriticName={review.byline}
-                CriticsPick={!!review.critics_pick}
+                key={`${review.display_title}-${review.byline}`}
+                rawData={review}
               />
             );
           })}
