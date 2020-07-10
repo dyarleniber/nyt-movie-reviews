@@ -8,7 +8,7 @@ const NotFound = ({ Code, Message }) => {
     <Container>
       <Content>
         <strong>{Code}</strong>
-        <span>{Message}</span>
+        <strong>{Message}</strong>
       </Content>
     </Container>
   );
