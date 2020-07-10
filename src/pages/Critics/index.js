@@ -1,36 +1,24 @@
-import { toast } from 'react-toastify';
-import React, { useState, useEffect } from 'react';
-
-import GetCriticsService from '../../services/GetCriticsService';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import PageLoading from '../../components/PageLoading';
 import NotFound from '../../components/NotFound';
-
+import { searchCriticsRequest } from '../../store/modules/critics/actions';
 import { Container, CriticList } from './styles';
-
 import emptyCriticLogo from '../../assets/images/empty-critic.svg';
 
 export default function Critics() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [critics, setCritics] = useState([]);
+  const dispatch = useDispatch();
+
+  const loading = useSelector(state => state.critics.loading);
+
+  const critics = useSelector(state => state.critics.critics);
 
   useEffect(() => {
-    async function loadCritics() {
-      const response = await GetCriticsService.constructor.run();
-
-      if (response.success) {
-        setCritics(response.data);
-        setIsLoading(false);
-      } else {
-        toast.error('Failed to load critics');
-        setIsLoading(false);
-      }
-    }
-
-    loadCritics();
+    dispatch(searchCriticsRequest());
   }, []);
 
-  if (isLoading) {
+  if (loading) {
     return <PageLoading />;
   }
 
