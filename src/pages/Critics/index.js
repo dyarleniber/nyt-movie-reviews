@@ -16,7 +16,7 @@ export default function Critics() {
 
   useEffect(() => {
     dispatch(searchCriticsRequest());
-  }, []);
+  }, [dispatch]);
 
   if (loading) {
     return <PageLoading />;

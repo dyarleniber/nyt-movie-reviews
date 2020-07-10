@@ -25,8 +25,8 @@ const Reviews = ({ match: { params } }) => {
   const reviews = useSelector(state => state.reviews.reviews);
 
   useEffect(() => {
-    dispatch(searchReviewsRequest(filters));
-  }, []);
+    dispatch(searchReviewsRequest());
+  }, [dispatch]);
 
   function handleFilterChange(e) {
     e.preventDefault();
