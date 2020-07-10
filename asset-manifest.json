@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/nyt-movie-reviews/static/js/main.5e62b4fa.chunk.js",
+    "main.js.map": "/nyt-movie-reviews/static/js/main.5e62b4fa.chunk.js.map",
+    "runtime-main.js": "/nyt-movie-reviews/static/js/runtime-main.9bcf5f0d.js",
+    "runtime-main.js.map": "/nyt-movie-reviews/static/js/runtime-main.9bcf5f0d.js.map",
+    "static/css/2.f42e59c9.chunk.css": "/nyt-movie-reviews/static/css/2.f42e59c9.chunk.css",
+    "static/js/2.07ed30f9.chunk.js": "/nyt-movie-reviews/static/js/2.07ed30f9.chunk.js",
+    "static/js/2.07ed30f9.chunk.js.map": "/nyt-movie-reviews/static/js/2.07ed30f9.chunk.js.map",
+    "index.html": "/nyt-movie-reviews/index.html",
+    "precache-manifest.f286b14ec932d7975852d0dc03a4d8b4.js": "/nyt-movie-reviews/precache-manifest.f286b14ec932d7975852d0dc03a4d8b4.js",
+    "service-worker.js": "/nyt-movie-reviews/service-worker.js",
+    "static/css/2.f42e59c9.chunk.css.map": "/nyt-movie-reviews/static/css/2.f42e59c9.chunk.css.map",
+    "static/media/check.svg": "/nyt-movie-reviews/static/media/check.14b7074c.svg",
+    "static/media/critic.svg": "/nyt-movie-reviews/static/media/critic.4afd3ac5.svg",
+    "static/media/empty-critic.svg": "/nyt-movie-reviews/static/media/empty-critic.5941113a.svg",
+    "static/media/empty-image.svg": "/nyt-movie-reviews/static/media/empty-image.c76326cd.svg",
+    "static/media/favorite.svg": "/nyt-movie-reviews/static/media/favorite.d6e7adef.svg",
+    "static/media/nyt.svg": "/nyt-movie-reviews/static/media/nyt.0a6ec0a2.svg",
+    "static/media/review.svg": "/nyt-movie-reviews/static/media/review.1653301d.svg"
+  }
+}
