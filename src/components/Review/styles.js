@@ -70,5 +70,9 @@ export const Container = styled.div`
   img {
     margin: 0 0 0 20px;
     height: 120px;
+
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
 `;
