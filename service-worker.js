@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/nyt-movie-reviews/precache-manifest.9f4fac5407acc5f197204bcc39add6b5.js"
+  "/nyt-movie-reviews/precache-manifest.bdc429afa19cfc7a6a325c24a3755229.js"
 );
 
 self.addEventListener('message', (event) => {
