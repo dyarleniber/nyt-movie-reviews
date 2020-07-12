@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import PageLoading from '../../components/PageLoading';
 import NotFound from '../../components/NotFound';
 import Review from '../../components/Review';
-import { searchReviewsRequest } from '../../store/modules/reviews/actions';
+import ComponentLoading from '../../components/ComponentLoading';
+import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+import {
+  searchReviewsRequest,
+  searchMoreReviewsRequest,
+} from '../../store/modules/reviews/actions';
 import { Header, Filter, Container } from './styles';
 
 const Reviews = ({ match: { params } }) => {
@@ -13,20 +18,32 @@ const Reviews = ({ match: { params } }) => {
 
   const dispatch = useDispatch();
 
-  const [filters, setFilters] = useState({
-    order: '',
-    query: '',
-    reviewer: criticParam,
-    criticsPick: '',
-  });
-
-  const loading = useSelector(state => state.reviews.loading);
-
+  const initialLoading = useSelector(state => state.reviews.initialLoading);
+  const loadingMore = useSelector(state => state.reviews.loadingMore);
+  const filters = useSelector(state => state.reviews.filters);
   const reviews = useSelector(state => state.reviews.reviews);
+  const hasMore = useSelector(state => state.reviews.hasMore);
+
+  const [componentFilters, setComponentFilters] = useState(filters);
 
   useEffect(() => {
-    dispatch(searchReviewsRequest());
-  }, [dispatch]);
+    dispatch(
+      searchReviewsRequest({
+        order: '',
+        query: '',
+        reviewer: criticParam,
+        criticsPick: '',
+      })
+    );
+  }, [dispatch, criticParam]);
+
+  const searchMoreReviewsCallback = useCallback(() => {
+    if (hasMore) {
+      dispatch(searchMoreReviewsRequest());
+    }
+  }, [dispatch, hasMore]);
+
+  useInfiniteScroll(searchMoreReviewsCallback);
 
   function handleFilterChange(e) {
     e.preventDefault();
@@ -36,13 +53,13 @@ const Reviews = ({ match: { params } }) => {
     } = e;
 
     if (['criticsPick'].includes(name)) {
-      setFilters({
-        ...filters,
+      setComponentFilters({
+        ...componentFilters,
         [name]: checked,
       });
     } else {
-      setFilters({
-        ...filters,
+      setComponentFilters({
+        ...componentFilters,
         [name]: value,
       });
     }
@@ -51,10 +68,10 @@ const Reviews = ({ match: { params } }) => {
   async function handleFilterSubmit(e) {
     e.preventDefault();
 
-    dispatch(searchReviewsRequest(filters));
+    dispatch(searchReviewsRequest(componentFilters));
   }
 
-  if (loading) {
+  if (initialLoading) {
     return <PageLoading />;
   }
 
@@ -66,7 +83,7 @@ const Reviews = ({ match: { params } }) => {
             <select
               name="order"
               onChange={handleFilterChange}
-              value={filters.order}
+              value={componentFilters.order}
             >
               <option value="">Order</option>
               <option value="by-title">Order by Title</option>
@@ -80,14 +97,14 @@ const Reviews = ({ match: { params } }) => {
               name="query"
               placeholder="Keyword"
               onChange={handleFilterChange}
-              value={filters.query}
+              value={componentFilters.query}
             />
             <input
               type="text"
               name="reviewer"
               placeholder="Reviewer"
               onChange={handleFilterChange}
-              value={filters.reviewer}
+              value={componentFilters.reviewer}
             />
             <label htmlFor="criticsPick">
               <input
@@ -95,7 +112,7 @@ const Reviews = ({ match: { params } }) => {
                 id="criticsPick"
                 name="criticsPick"
                 onChange={handleFilterChange}
-                checked={filters.criticsPick}
+                checked={componentFilters.criticsPick}
               />
               <span>NYT Critic’s Pick</span>
             </label>
@@ -115,6 +132,7 @@ const Reviews = ({ match: { params } }) => {
               />
             );
           })}
+          {loadingMore && <ComponentLoading />}
         </Container>
       )}
     </>

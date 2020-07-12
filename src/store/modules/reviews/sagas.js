@@ -1,19 +1,26 @@
 import { toast } from 'react-toastify';
-import { takeLatest, put, all } from 'redux-saga/effects';
+import { takeLatest, put, all, select } from 'redux-saga/effects';
 
 import GetReviewsService from '../../../services/GetReviewsService';
-import { searchReviewsSuccess, searchReviewsFailure } from './actions';
+import {
+  searchReviewsSuccess,
+  searchReviewsFailure,
+  searchMoreReviewsSuccess,
+  searchMoreReviewsFailure,
+} from './actions';
+import apiConfig from '../../../config/api';
 
 export function* searchReviews({ payload }) {
   try {
     const response = yield GetReviewsService.constructor.run({
       ...payload.filters,
+      offset: 0,
     });
 
     if (response.success) {
-      const reviews = response.data;
+      const { data: reviews, hasMore } = response;
 
-      yield put(searchReviewsSuccess(reviews));
+      yield put(searchReviewsSuccess(reviews, hasMore));
     } else {
       toast.error('Failed to load data. Please, try again later.');
 
@@ -26,4 +33,36 @@ export function* searchReviews({ payload }) {
   }
 }
 
-export default all([takeLatest('@reviews/SEARCH_REQUEST', searchReviews)]);
+export function* searchMoreReviews() {
+  try {
+    const searchCounter = yield select(state => state.reviews.searchCounter);
+
+    const filters = yield select(state => state.reviews.filters);
+
+    const offset = searchCounter * apiConfig.offsetMultiple;
+
+    const response = yield GetReviewsService.constructor.run({
+      ...filters,
+      offset,
+    });
+
+    if (response.success) {
+      const { data: reviews, hasMore } = response;
+
+      yield put(searchMoreReviewsSuccess(reviews, hasMore));
+    } else {
+      toast.error('Failed to load data. Please, try again later.');
+
+      yield put(searchMoreReviewsFailure());
+    }
+  } catch (err) {
+    toast.error('Failed to load data. Please, try again later.');
+
+    yield put(searchMoreReviewsFailure());
+  }
+}
+
+export default all([
+  takeLatest('@reviews/SEARCH_REQUEST', searchReviews),
+  takeLatest('@reviews/SEARCH_MORE_REQUEST', searchMoreReviews),
+]);
