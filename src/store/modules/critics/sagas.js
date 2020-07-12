@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { takeLatest, put, all } from 'redux-saga/effects';
+import { takeLeading, put, all } from 'redux-saga/effects';
 
 import GetCriticsService from '../../../services/GetCriticsService';
 import { searchCriticsSuccess, searchCriticsFailure } from './actions';
@@ -24,4 +24,4 @@ export function* searchCritics() {
   }
 }
 
-export default all([takeLatest('@critics/SEARCH_REQUEST', searchCritics)]);
+export default all([takeLeading('@critics/SEARCH_REQUEST', searchCritics)]);

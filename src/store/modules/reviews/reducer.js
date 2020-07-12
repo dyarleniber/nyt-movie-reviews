@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   filters: {},
   reviews: [],
   hasMore: false,
+  hasError: false,
 };
 
 export default function reviews(state = INITIAL_STATE, action) {
@@ -27,12 +28,14 @@ export default function reviews(state = INITIAL_STATE, action) {
         searchCounter: state.searchCounter + 1,
         reviews: action.payload.reviews,
         hasMore: action.payload.hasMore,
+        hasError: false,
       };
     }
     case '@reviews/SEARCH_FAILURE': {
       return {
         ...state,
         initialLoading: false,
+        hasError: true,
       };
     }
     case '@reviews/SEARCH_MORE_REQUEST': {
@@ -48,12 +51,14 @@ export default function reviews(state = INITIAL_STATE, action) {
         searchCounter: state.searchCounter + 1,
         reviews: [...state.reviews, ...action.payload.reviews],
         hasMore: action.payload.hasMore,
+        hasError: false,
       };
     }
     case '@reviews/SEARCH_MORE_FAILURE': {
       return {
         ...state,
         loadingMore: false,
+        hasError: true,
       };
     }
     default:

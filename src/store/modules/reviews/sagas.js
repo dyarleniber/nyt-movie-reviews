@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { takeLatest, put, all, select } from 'redux-saga/effects';
+import { takeLeading, put, all, select } from 'redux-saga/effects';
 
 import GetReviewsService from '../../../services/GetReviewsService';
 import {
@@ -63,6 +63,6 @@ export function* searchMoreReviews() {
 }
 
 export default all([
-  takeLatest('@reviews/SEARCH_REQUEST', searchReviews),
-  takeLatest('@reviews/SEARCH_MORE_REQUEST', searchMoreReviews),
+  takeLeading('@reviews/SEARCH_REQUEST', searchReviews),
+  takeLeading('@reviews/SEARCH_MORE_REQUEST', searchMoreReviews),
 ]);

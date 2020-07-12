@@ -23,6 +23,7 @@ const Reviews = () => {
   const filters = useSelector(state => state.reviews.filters);
   const reviews = useSelector(state => state.reviews.reviews);
   const hasMore = useSelector(state => state.reviews.hasMore);
+  const hasError = useSelector(state => state.reviews.hasError);
 
   const [componentFilters, setComponentFilters] = useState(filters);
 
@@ -40,10 +41,10 @@ const Reviews = () => {
   }, [dispatch, criticParam]);
 
   const searchMoreReviewsCallback = useCallback(() => {
-    if (hasMore) {
+    if (hasMore && !hasError) {
       dispatch(searchMoreReviewsRequest());
     }
-  }, [dispatch, hasMore]);
+  }, [dispatch, hasMore, hasError]);
 
   useInfiniteScroll(searchMoreReviewsCallback);
 
