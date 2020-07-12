@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import PageLoading from '../../components/PageLoading';
 import NotFound from '../../components/NotFound';
@@ -41,9 +42,9 @@ export default function Critics() {
                   </div>
                   <strong>{critic.display_name}</strong>
                   <small>{critic.bio}</small>
-                  <a href={`/reviews/${critic.display_name}`}>
+                  <Link to={`/reviews/${critic.display_name}`}>
                     See movie reviews
-                  </a>
+                  </Link>
                 </li>
               );
             })}

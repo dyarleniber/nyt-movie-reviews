@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 import PageLoading from '../../components/PageLoading';
 import NotFound from '../../components/NotFound';
@@ -13,8 +13,8 @@ import {
 } from '../../store/modules/reviews/actions';
 import { Header, Filter, Container } from './styles';
 
-const Reviews = ({ match: { params } }) => {
-  const { critic: criticParam } = params;
+const Reviews = () => {
+  const { critic: criticParam } = useParams();
 
   const dispatch = useDispatch();
 
@@ -27,14 +27,16 @@ const Reviews = ({ match: { params } }) => {
   const [componentFilters, setComponentFilters] = useState(filters);
 
   useEffect(() => {
-    dispatch(
-      searchReviewsRequest({
-        order: '',
-        query: '',
-        reviewer: criticParam,
-        criticsPick: '',
-      })
-    );
+    const initialFilters = {
+      order: '',
+      query: '',
+      reviewer: criticParam,
+      criticsPick: '',
+    };
+
+    setComponentFilters(initialFilters);
+
+    dispatch(searchReviewsRequest(initialFilters));
   }, [dispatch, criticParam]);
 
   const searchMoreReviewsCallback = useCallback(() => {
@@ -137,22 +139,6 @@ const Reviews = ({ match: { params } }) => {
       )}
     </>
   );
-};
-
-Reviews.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      critic: PropTypes.string,
-    }),
-  }),
-};
-
-Reviews.defaultProps = {
-  match: {
-    params: {
-      critic: null,
-    },
-  },
 };
 
 export default Reviews;
