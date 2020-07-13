@@ -1,14 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import nytLogo from '../../assets/images/nyt.svg';
 import { Container, Content, Options, Option } from './styles';
 
-const Header = props => {
-  const {
-    location: { pathname },
-  } = props;
+const Header = () => {
+  const location = useLocation();
+
+  const { pathname } = location;
 
   return (
     <Container>
@@ -42,10 +41,4 @@ const Header = props => {
   );
 };
 
-Header.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-export default withRouter(Header);
+export default Header;

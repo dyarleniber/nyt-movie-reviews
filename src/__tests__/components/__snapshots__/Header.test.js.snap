@@ -1,7 +1,447 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header component should render without crashing 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Header>
+      <styled.div>
+        <StyledComponent
+          forwardedComponent={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-bdVaJa",
+                "isStatic": false,
+                "lastClassName": "klRTlo",
+                "rules": Array [
+                  "
+  background: #fff;
+  padding: 0 30px;
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-bdVaJa",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            }
+          }
+          forwardedRef={null}
+        >
+          <div
+            className="sc-bdVaJa klRTlo"
+          >
+            <styled.div>
+              <StyledComponent
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bwzfXH",
+                      "isStatic": false,
+                      "lastClassName": "iMLYIr",
+                      "rules": Array [
+                        "
+  height: 64px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  nav {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 20px;
+      padding-right: 20px;
+      border-right: 1px solid #eee;
+    }
+  }
+
+  aside {
+    display: flex;
+    align-items: center;
+  }
+",
+                      ],
+                    },
+                    "displayName": "styled.div",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bwzfXH",
+                    "target": "div",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <div
+                  className="sc-bwzfXH iMLYIr"
+                >
+                  <nav>
+                    <Link
+                      to="/"
+                    >
+                      <LinkAnchor
+                        href="/"
+                        navigate={[Function]}
+                      >
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <img
+                            alt="NYTLogo"
+                            src="nyt.svg"
+                          />
+                        </a>
+                      </LinkAnchor>
+                    </Link>
+                  </nav>
+                  <aside>
+                    <styled.div>
+                      <StyledComponent
+                        forwardedComponent={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "attrs": Array [],
+                            "componentStyle": ComponentStyle {
+                              "componentId": "sc-htpNat",
+                              "isStatic": false,
+                              "lastClassName": "liahL",
+                              "rules": Array [
+                                "
+  display: flex;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid #eee;
+
+  div {
+    text-align: right;
+    margin-right: 10px;
+
+    a {
+      display: block;
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
+
+      &:hover {
+        color: ",
+                                "#191919",
+                                ";
+      }
+    }
+  }
+",
+                              ],
+                            },
+                            "displayName": "styled.div",
+                            "foldedComponentIds": Array [],
+                            "render": [Function],
+                            "styledComponentId": "sc-htpNat",
+                            "target": "div",
+                            "toString": [Function],
+                            "warnTooManyClasses": [Function],
+                            "withComponent": [Function],
+                          }
+                        }
+                        forwardedRef={null}
+                      >
+                        <div
+                          className="sc-htpNat liahL"
+                        >
+                          <div>
+                            <Styled(Link)
+                              current={0}
+                              to="/reviews"
+                            >
+                              <StyledComponent
+                                current={0}
+                                forwardedComponent={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "attrs": Array [],
+                                    "componentStyle": ComponentStyle {
+                                      "componentId": "sc-bxivhb",
+                                      "isStatic": false,
+                                      "lastClassName": "bwznVz",
+                                      "rules": Array [
+                                        "
+  color: ",
+                                        [Function],
+                                        ";
+",
+                                      ],
+                                    },
+                                    "displayName": "Styled(Link)",
+                                    "foldedComponentIds": Array [],
+                                    "propTypes": Object {
+                                      "innerRef": [Function],
+                                      "onClick": [Function],
+                                      "replace": [Function],
+                                      "target": [Function],
+                                      "to": [Function],
+                                    },
+                                    "render": [Function],
+                                    "styledComponentId": "sc-bxivhb",
+                                    "target": Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "displayName": "Link",
+                                      "propTypes": Object {
+                                        "innerRef": [Function],
+                                        "onClick": [Function],
+                                        "replace": [Function],
+                                        "target": [Function],
+                                        "to": [Function],
+                                      },
+                                      "render": [Function],
+                                    },
+                                    "toString": [Function],
+                                    "warnTooManyClasses": [Function],
+                                    "withComponent": [Function],
+                                  }
+                                }
+                                forwardedRef={null}
+                                to="/reviews"
+                              >
+                                <Link
+                                  className="sc-bxivhb bwznVz"
+                                  current={0}
+                                  to="/reviews"
+                                >
+                                  <LinkAnchor
+                                    className="sc-bxivhb bwznVz"
+                                    current={0}
+                                    href="/reviews"
+                                    navigate={[Function]}
+                                  >
+                                    <a
+                                      className="sc-bxivhb bwznVz"
+                                      current={0}
+                                      href="/reviews"
+                                      onClick={[Function]}
+                                    >
+                                      Reviews
+                                    </a>
+                                  </LinkAnchor>
+                                </Link>
+                              </StyledComponent>
+                            </Styled(Link)>
+                            <Styled(Link)
+                              current={0}
+                              to="/critics"
+                            >
+                              <StyledComponent
+                                current={0}
+                                forwardedComponent={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "attrs": Array [],
+                                    "componentStyle": ComponentStyle {
+                                      "componentId": "sc-bxivhb",
+                                      "isStatic": false,
+                                      "lastClassName": "bwznVz",
+                                      "rules": Array [
+                                        "
+  color: ",
+                                        [Function],
+                                        ";
+",
+                                      ],
+                                    },
+                                    "displayName": "Styled(Link)",
+                                    "foldedComponentIds": Array [],
+                                    "propTypes": Object {
+                                      "innerRef": [Function],
+                                      "onClick": [Function],
+                                      "replace": [Function],
+                                      "target": [Function],
+                                      "to": [Function],
+                                    },
+                                    "render": [Function],
+                                    "styledComponentId": "sc-bxivhb",
+                                    "target": Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "displayName": "Link",
+                                      "propTypes": Object {
+                                        "innerRef": [Function],
+                                        "onClick": [Function],
+                                        "replace": [Function],
+                                        "target": [Function],
+                                        "to": [Function],
+                                      },
+                                      "render": [Function],
+                                    },
+                                    "toString": [Function],
+                                    "warnTooManyClasses": [Function],
+                                    "withComponent": [Function],
+                                  }
+                                }
+                                forwardedRef={null}
+                                to="/critics"
+                              >
+                                <Link
+                                  className="sc-bxivhb bwznVz"
+                                  current={0}
+                                  to="/critics"
+                                >
+                                  <LinkAnchor
+                                    className="sc-bxivhb bwznVz"
+                                    current={0}
+                                    href="/critics"
+                                    navigate={[Function]}
+                                  >
+                                    <a
+                                      className="sc-bxivhb bwznVz"
+                                      current={0}
+                                      href="/critics"
+                                      onClick={[Function]}
+                                    >
+                                      Critics
+                                    </a>
+                                  </LinkAnchor>
+                                </Link>
+                              </StyledComponent>
+                            </Styled(Link)>
+                            <Styled(Link)
+                              current={0}
+                              to="/favorites"
+                            >
+                              <StyledComponent
+                                current={0}
+                                forwardedComponent={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "attrs": Array [],
+                                    "componentStyle": ComponentStyle {
+                                      "componentId": "sc-bxivhb",
+                                      "isStatic": false,
+                                      "lastClassName": "bwznVz",
+                                      "rules": Array [
+                                        "
+  color: ",
+                                        [Function],
+                                        ";
+",
+                                      ],
+                                    },
+                                    "displayName": "Styled(Link)",
+                                    "foldedComponentIds": Array [],
+                                    "propTypes": Object {
+                                      "innerRef": [Function],
+                                      "onClick": [Function],
+                                      "replace": [Function],
+                                      "target": [Function],
+                                      "to": [Function],
+                                    },
+                                    "render": [Function],
+                                    "styledComponentId": "sc-bxivhb",
+                                    "target": Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "displayName": "Link",
+                                      "propTypes": Object {
+                                        "innerRef": [Function],
+                                        "onClick": [Function],
+                                        "replace": [Function],
+                                        "target": [Function],
+                                        "to": [Function],
+                                      },
+                                      "render": [Function],
+                                    },
+                                    "toString": [Function],
+                                    "warnTooManyClasses": [Function],
+                                    "withComponent": [Function],
+                                  }
+                                }
+                                forwardedRef={null}
+                                to="/favorites"
+                              >
+                                <Link
+                                  className="sc-bxivhb bwznVz"
+                                  current={0}
+                                  to="/favorites"
+                                >
+                                  <LinkAnchor
+                                    className="sc-bxivhb bwznVz"
+                                    current={0}
+                                    href="/favorites"
+                                    navigate={[Function]}
+                                  >
+                                    <a
+                                      className="sc-bxivhb bwznVz"
+                                      current={0}
+                                      href="/favorites"
+                                      onClick={[Function]}
+                                    >
+                                      Favorites
+                                    </a>
+                                  </LinkAnchor>
+                                </Link>
+                              </StyledComponent>
+                            </Styled(Link)>
+                          </div>
+                        </div>
+                      </StyledComponent>
+                    </styled.div>
+                  </aside>
+                </div>
+              </StyledComponent>
+            </styled.div>
+          </div>
+        </StyledComponent>
+      </styled.div>
+    </Header>
+  </Router>
+</MemoryRouter>
 `;
