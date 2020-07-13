@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a94ec37444907dc709a0235e46de8735",
+    "revision": "89f36f4ffffe0315fbc51df6d3469cab",
     "url": "/nyt-movie-reviews/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nyt-movie-reviews/static/js/2.0e73904d.chunk.js"
   },
   {
-    "revision": "0be306b977e272bcf3af",
-    "url": "/nyt-movie-reviews/static/js/main.1ef3b2d3.chunk.js"
+    "revision": "9db86ac0e3d07b27bba2",
+    "url": "/nyt-movie-reviews/static/js/main.22f505dd.chunk.js"
   },
   {
     "revision": "7304c48b8d2502d85852",
