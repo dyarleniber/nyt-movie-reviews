@@ -13,7 +13,7 @@ exports[`App component should render without crashing 1`] = `
   }
 >
   <HashRouter>
-    <withRouter(Header) />
+    <Header />
     <Routes />
     <GlobalStyleComponent />
     <ToastContainer
