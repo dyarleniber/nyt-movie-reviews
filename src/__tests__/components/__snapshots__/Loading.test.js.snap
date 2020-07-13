@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading component should render without crashing 1`] = `
+<styled.div>
+  <styled.div
+    delay="0s"
+  />
+  <styled.div
+    delay=".1s"
+  />
+  <styled.div
+    delay=".2s"
+  />
+</styled.div>
+`;

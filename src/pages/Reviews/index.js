@@ -14,7 +14,9 @@ import {
 import { Header, Filter, Container } from './styles';
 
 const Reviews = () => {
-  const { critic: criticParam } = useParams();
+  const { critic } = useParams();
+
+  const criticParam = critic || '';
 
   const dispatch = useDispatch();
 

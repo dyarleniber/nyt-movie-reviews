@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reviews page should render without crashing 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "testKey",
+          "pathname": "/reviews",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "testKey",
+              "pathname": "/reviews",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/reviews",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Reviews>
+        <styled.div>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-htoDjs",
+                  "isStatic": false,
+                  "lastClassName": "ieqtDf",
+                  "rules": Array [
+                    "
+  background: #e6e6e6;
+  padding: 0 30px;
+",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-htoDjs",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <div
+              className="sc-htoDjs ieqtDf"
+            >
+              <styled.div>
+                <StyledComponent
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-dnqmqq",
+                        "isStatic": false,
+                        "lastClassName": "cDUlEM",
+                        "rules": Array [
+                          "
+  max-width: 900px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  margin: 0 auto;
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+
+    input,
+    select {
+      background: rgba(0, 0, 0, 0.1);
+      border: 0;
+      border-radius: 4px;
+      padding: 10px 15px;
+      margin: 15px 0 15px 0;
+    }
+
+    label {
+      input,
+      span {
+        font-size: smaller;
+        margin: 0 5px 0 0;
+        padding: 0;
+      }
+
+      input {
+        vertical-align: sub;
+      }
+    }
+
+    button {
+      height: 44px;
+      margin: 15px 0 15px 0;
+      padding: 10px 20px;
+      border: 0;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: #999;
+      transition: background 0.2s;
+
+      &:hover {
+        background: ",
+                          "#191919",
+                          ";
+      }
+    }
+
+    @media (min-width: 900px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+",
+                        ],
+                      },
+                      "displayName": "styled.div",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "sc-dnqmqq",
+                      "target": "div",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                >
+                  <div
+                    className="sc-dnqmqq cDUlEM"
+                  >
+                    <form
+                      autoComplete="off"
+                      onSubmit={[Function]}
+                    >
+                      <select
+                        name="order"
+                        onChange={[Function]}
+                        value=""
+                      >
+                        <option
+                          value=""
+                        >
+                          Order
+                        </option>
+                        <option
+                          value="by-title"
+                        >
+                          Order by Title
+                        </option>
+                        <option
+                          value="by-publication-date"
+                        >
+                          Order by Publication date
+                        </option>
+                        <option
+                          value="by-opening-date"
+                        >
+                          Order by Opening date
+                        </option>
+                      </select>
+                      <input
+                        name="query"
+                        onChange={[Function]}
+                        placeholder="Keyword"
+                        type="text"
+                        value=""
+                      />
+                      <input
+                        name="reviewer"
+                        onChange={[Function]}
+                        placeholder="Reviewer"
+                        type="text"
+                        value=""
+                      />
+                      <label
+                        htmlFor="criticsPick"
+                      >
+                        <input
+                          checked=""
+                          id="criticsPick"
+                          name="criticsPick"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
+                        <span>
+                          NYT Critic’s Pick
+                        </span>
+                      </label>
+                      <button
+                        type="submit"
+                      >
+                        Search
+                      </button>
+                    </form>
+                  </div>
+                </StyledComponent>
+              </styled.div>
+            </div>
+          </StyledComponent>
+        </styled.div>
+        <NotFound
+          Code={null}
+          Message="No records found"
+        >
+          <styled.div>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-ifAKCX",
+                    "isStatic": false,
+                    "lastClassName": "ioktai",
+                    "rules": Array [
+                      "
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: oblique;
+",
+                    ],
+                  },
+                  "displayName": "styled.div",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-ifAKCX",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <div
+                className="sc-ifAKCX ioktai"
+              >
+                <styled.div>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-EHOje",
+                          "isStatic": false,
+                          "lastClassName": "cTEuPM",
+                          "rules": Array [
+                            "
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 90px;
+",
+                          ],
+                        },
+                        "displayName": "styled.div",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-EHOje",
+                        "target": "div",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <div
+                      className="sc-EHOje cTEuPM"
+                    >
+                      <strong />
+                      <strong>
+                        No records found
+                      </strong>
+                    </div>
+                  </StyledComponent>
+                </styled.div>
+              </div>
+            </StyledComponent>
+          </styled.div>
+        </NotFound>
+      </Reviews>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

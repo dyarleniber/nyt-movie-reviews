@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page should render without crashing 1`] = `
+<styled.div>
+  <ul>
+    <Styled(Link)
+      to="/reviews"
+    >
+      <strong>
+        Reviews
+      </strong>
+      <img
+        alt="ReviewLogo"
+        src="review.svg"
+      />
+      <span>
+        Search New York Times movie reviews by keyword and filter by Critic’s Pick and Reviewer. Supports ordering results by-title, by-publication-date, or by-opening-date.
+      </span>
+    </Styled(Link)>
+    <Styled(Link)
+      to="/critics"
+    >
+      <strong>
+        Critics
+      </strong>
+      <img
+        alt="CriticLogo"
+        src="critic.svg"
+      />
+      <span>
+        Get New York Times movie critics. You can either specify the reviewer name.
+      </span>
+    </Styled(Link)>
+    <Styled(Link)
+      to="/favorites"
+    >
+      <strong>
+        Favorites
+      </strong>
+      <img
+        alt="favoriteLogo"
+        src="favorite.svg"
+      />
+      <span>
+        Favorites New York Times movie reviews.
+      </span>
+    </Styled(Link)>
+  </ul>
+</styled.div>
+`;

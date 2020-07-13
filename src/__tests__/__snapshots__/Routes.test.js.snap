@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes component should render without crashing 1`] = `
+<Switch>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+  <Route
+    component={[Function]}
+    path="/reviews/:critic?"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/critics"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/favorites"
+  />
+  <Route
+    render={[Function]}
+  />
+</Switch>
+`;

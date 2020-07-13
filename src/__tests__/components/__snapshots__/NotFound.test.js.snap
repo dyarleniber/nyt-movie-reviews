@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound component should render without crashing 1`] = `
+<styled.div>
+  <styled.div>
+    <strong>
+      404
+    </strong>
+    <strong>
+      Page not found
+    </strong>
+  </styled.div>
+</styled.div>
+`;

@@ -2,7 +2,12 @@ const INITIAL_STATE = {
   initialLoading: false,
   loadingMore: false,
   searchCounter: 0,
-  filters: {},
+  filters: {
+    order: '',
+    query: '',
+    reviewer: '',
+    criticsPick: '',
+  },
   reviews: [],
   hasMore: false,
   hasError: false,
