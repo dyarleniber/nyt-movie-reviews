@@ -70,11 +70,19 @@ const Review = props => {
           Read review
         </a>
         {isFavorite ? (
-          <button type="button" onClick={handleRemoveFavorites}>
+          <button
+            className="handleFavoritesButton"
+            type="button"
+            onClick={handleRemoveFavorites}
+          >
             Remove from favorites
           </button>
         ) : (
-          <button type="button" onClick={handleAddFavorites}>
+          <button
+            className="handleFavoritesButton"
+            type="button"
+            onClick={handleAddFavorites}
+          >
             Add to favorites
           </button>
         )}
