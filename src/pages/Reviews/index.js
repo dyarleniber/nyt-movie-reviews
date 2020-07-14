@@ -58,14 +58,12 @@ const Reviews = () => {
     } = e;
 
     if (['criticsPick'].includes(name)) {
-      setComponentFilters({
-        ...componentFilters,
-        [name]: checked,
+      setComponentFilters(prevState => {
+        return { ...prevState, [name]: checked };
       });
     } else {
-      setComponentFilters({
-        ...componentFilters,
-        [name]: value,
+      setComponentFilters(prevState => {
+        return { ...prevState, [name]: value };
       });
     }
   }
@@ -84,8 +82,13 @@ const Reviews = () => {
     <>
       <Header>
         <Filter>
-          <form autoComplete="off" onSubmit={handleFilterSubmit}>
+          <form
+            id="filter-form"
+            autoComplete="off"
+            onSubmit={handleFilterSubmit}
+          >
             <select
+              id="order-input"
               name="order"
               onChange={handleFilterChange}
               value={componentFilters.order}
@@ -98,6 +101,7 @@ const Reviews = () => {
               <option value="by-opening-date">Order by Opening date</option>
             </select>
             <input
+              id="query-input"
               type="text"
               name="query"
               placeholder="Keyword"
@@ -105,16 +109,17 @@ const Reviews = () => {
               value={componentFilters.query}
             />
             <input
+              id="reviewer-input"
               type="text"
               name="reviewer"
               placeholder="Reviewer"
               onChange={handleFilterChange}
               value={componentFilters.reviewer}
             />
-            <label htmlFor="criticsPick">
+            <label htmlFor="critics-pick-input">
               <input
+                id="critics-pick-input"
                 type="checkbox"
-                id="criticsPick"
                 name="criticsPick"
                 onChange={handleFilterChange}
                 checked={componentFilters.criticsPick}

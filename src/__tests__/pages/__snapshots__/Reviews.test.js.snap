@@ -180,9 +180,11 @@ exports[`Reviews page should render without crashing 1`] = `
                   >
                     <form
                       autoComplete="off"
+                      id="filter-form"
                       onSubmit={[Function]}
                     >
                       <select
+                        id="order-input"
                         name="order"
                         onChange={[Function]}
                         value=""
@@ -209,6 +211,7 @@ exports[`Reviews page should render without crashing 1`] = `
                         </option>
                       </select>
                       <input
+                        id="query-input"
                         name="query"
                         onChange={[Function]}
                         placeholder="Keyword"
@@ -216,6 +219,7 @@ exports[`Reviews page should render without crashing 1`] = `
                         value=""
                       />
                       <input
+                        id="reviewer-input"
                         name="reviewer"
                         onChange={[Function]}
                         placeholder="Reviewer"
@@ -223,11 +227,11 @@ exports[`Reviews page should render without crashing 1`] = `
                         value=""
                       />
                       <label
-                        htmlFor="criticsPick"
+                        htmlFor="critics-pick-input"
                       >
                         <input
                           checked=""
-                          id="criticsPick"
+                          id="critics-pick-input"
                           name="criticsPick"
                           onChange={[Function]}
                           type="checkbox"
@@ -331,6 +335,1525 @@ exports[`Reviews page should render without crashing 1`] = `
             </StyledComponent>
           </styled.div>
         </NotFound>
+      </Reviews>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Reviews page should render without crashing 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "testKey",
+          "pathname": "/reviews",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "testKey",
+              "pathname": "/reviews",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/reviews",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Reviews>
+        <PageLoading>
+          <styled.div>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-bdVaJa",
+                    "isStatic": false,
+                    "lastClassName": "jpqvBK",
+                    "rules": Array [
+                      "
+  display: flex;
+  justify-content: center;
+  align-items: center;
+",
+                    ],
+                  },
+                  "displayName": "styled.div",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-bdVaJa",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <div
+                className="sc-bdVaJa jpqvBK"
+              >
+                <styled.div>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-bwzfXH",
+                          "isStatic": false,
+                          "lastClassName": "fvnICI",
+                          "rules": Array [
+                            "
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 90px;
+
+  img {
+    height: 53px;
+  }
+",
+                          ],
+                        },
+                        "displayName": "styled.div",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-bwzfXH",
+                        "target": "div",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <div
+                      className="sc-bwzfXH fvnICI"
+                    >
+                      <Loading>
+                        <styled.div>
+                          <StyledComponent
+                            forwardedComponent={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "attrs": Array [],
+                                "componentStyle": ComponentStyle {
+                                  "componentId": "sc-htpNat",
+                                  "isStatic": false,
+                                  "lastClassName": "gdOXhL",
+                                  "rules": Array [
+                                    "
+  display: flex;
+  align-items: flex-end;
+",
+                                  ],
+                                },
+                                "displayName": "styled.div",
+                                "foldedComponentIds": Array [],
+                                "render": [Function],
+                                "styledComponentId": "sc-htpNat",
+                                "target": "div",
+                                "toString": [Function],
+                                "warnTooManyClasses": [Function],
+                                "withComponent": [Function],
+                              }
+                            }
+                            forwardedRef={null}
+                          >
+                            <div
+                              className="sc-htpNat gdOXhL"
+                            >
+                              <styled.div
+                                delay="0s"
+                              >
+                                <StyledComponent
+                                  delay="0s"
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "sc-bxivhb",
+                                        "isStatic": false,
+                                        "lastClassName": "dgfNWE",
+                                        "rules": Array [
+                                          "
+  background-color: black;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  animation: ",
+                                          Keyframes {
+                                            "id": "sc-keyframes-jEZFbd",
+                                            "inject": [Function],
+                                            "name": "jEZFbd",
+                                            "rules": Array [
+                                              "@-webkit-keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                              "@keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                            ],
+                                            "toString": [Function],
+                                          },
+                                          " 0.5s linear infinite;
+  animation-delay: ",
+                                          [Function],
+                                          ";
+",
+                                        ],
+                                      },
+                                      "displayName": "styled.div",
+                                      "foldedComponentIds": Array [],
+                                      "render": [Function],
+                                      "styledComponentId": "sc-bxivhb",
+                                      "target": "div",
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                >
+                                  <div
+                                    className="sc-bxivhb bLhhwi"
+                                  />
+                                </StyledComponent>
+                              </styled.div>
+                              <styled.div
+                                delay=".1s"
+                              >
+                                <StyledComponent
+                                  delay=".1s"
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "sc-bxivhb",
+                                        "isStatic": false,
+                                        "lastClassName": "dgfNWE",
+                                        "rules": Array [
+                                          "
+  background-color: black;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  animation: ",
+                                          Keyframes {
+                                            "id": "sc-keyframes-jEZFbd",
+                                            "inject": [Function],
+                                            "name": "jEZFbd",
+                                            "rules": Array [
+                                              "@-webkit-keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                              "@keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                            ],
+                                            "toString": [Function],
+                                          },
+                                          " 0.5s linear infinite;
+  animation-delay: ",
+                                          [Function],
+                                          ";
+",
+                                        ],
+                                      },
+                                      "displayName": "styled.div",
+                                      "foldedComponentIds": Array [],
+                                      "render": [Function],
+                                      "styledComponentId": "sc-bxivhb",
+                                      "target": "div",
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                >
+                                  <div
+                                    className="sc-bxivhb kfLSIf"
+                                  />
+                                </StyledComponent>
+                              </styled.div>
+                              <styled.div
+                                delay=".2s"
+                              >
+                                <StyledComponent
+                                  delay=".2s"
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "sc-bxivhb",
+                                        "isStatic": false,
+                                        "lastClassName": "dgfNWE",
+                                        "rules": Array [
+                                          "
+  background-color: black;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  animation: ",
+                                          Keyframes {
+                                            "id": "sc-keyframes-jEZFbd",
+                                            "inject": [Function],
+                                            "name": "jEZFbd",
+                                            "rules": Array [
+                                              "@-webkit-keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                              "@keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                            ],
+                                            "toString": [Function],
+                                          },
+                                          " 0.5s linear infinite;
+  animation-delay: ",
+                                          [Function],
+                                          ";
+",
+                                        ],
+                                      },
+                                      "displayName": "styled.div",
+                                      "foldedComponentIds": Array [],
+                                      "render": [Function],
+                                      "styledComponentId": "sc-bxivhb",
+                                      "target": "div",
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                >
+                                  <div
+                                    className="sc-bxivhb dgfNWE"
+                                  />
+                                </StyledComponent>
+                              </styled.div>
+                            </div>
+                          </StyledComponent>
+                        </styled.div>
+                      </Loading>
+                    </div>
+                  </StyledComponent>
+                </styled.div>
+              </div>
+            </StyledComponent>
+          </styled.div>
+        </PageLoading>
+      </Reviews>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Reviews page should render without crashing 3`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "testKey",
+          "pathname": "/reviews",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "testKey",
+              "pathname": "/reviews",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/reviews",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Reviews>
+        <styled.div>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-htoDjs",
+                  "isStatic": false,
+                  "lastClassName": "ieqtDf",
+                  "rules": Array [
+                    "
+  background: #e6e6e6;
+  padding: 0 30px;
+",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-htoDjs",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <div
+              className="sc-htoDjs ieqtDf"
+            >
+              <styled.div>
+                <StyledComponent
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-dnqmqq",
+                        "isStatic": false,
+                        "lastClassName": "cDUlEM",
+                        "rules": Array [
+                          "
+  max-width: 900px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  margin: 0 auto;
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+
+    input,
+    select {
+      background: rgba(0, 0, 0, 0.1);
+      border: 0;
+      border-radius: 4px;
+      padding: 10px 15px;
+      margin: 15px 0 15px 0;
+    }
+
+    label {
+      input,
+      span {
+        font-size: smaller;
+        margin: 0 5px 0 0;
+        padding: 0;
+      }
+
+      input {
+        vertical-align: sub;
+      }
+    }
+
+    button {
+      height: 44px;
+      margin: 15px 0 15px 0;
+      padding: 10px 20px;
+      border: 0;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: #999;
+      transition: background 0.2s;
+
+      &:hover {
+        background: ",
+                          "#191919",
+                          ";
+      }
+    }
+
+    @media (min-width: 900px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+",
+                        ],
+                      },
+                      "displayName": "styled.div",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "sc-dnqmqq",
+                      "target": "div",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                >
+                  <div
+                    className="sc-dnqmqq cDUlEM"
+                  >
+                    <form
+                      autoComplete="off"
+                      id="filter-form"
+                      onSubmit={[Function]}
+                    >
+                      <select
+                        id="order-input"
+                        name="order"
+                        onChange={[Function]}
+                        value=""
+                      >
+                        <option
+                          value=""
+                        >
+                          Order
+                        </option>
+                        <option
+                          value="by-title"
+                        >
+                          Order by Title
+                        </option>
+                        <option
+                          value="by-publication-date"
+                        >
+                          Order by Publication date
+                        </option>
+                        <option
+                          value="by-opening-date"
+                        >
+                          Order by Opening date
+                        </option>
+                      </select>
+                      <input
+                        id="query-input"
+                        name="query"
+                        onChange={[Function]}
+                        placeholder="Keyword"
+                        type="text"
+                        value=""
+                      />
+                      <input
+                        id="reviewer-input"
+                        name="reviewer"
+                        onChange={[Function]}
+                        placeholder="Reviewer"
+                        type="text"
+                        value=""
+                      />
+                      <label
+                        htmlFor="critics-pick-input"
+                      >
+                        <input
+                          checked=""
+                          id="critics-pick-input"
+                          name="criticsPick"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
+                        <span>
+                          NYT Critic’s Pick
+                        </span>
+                      </label>
+                      <button
+                        type="submit"
+                      >
+                        Search
+                      </button>
+                    </form>
+                  </div>
+                </StyledComponent>
+              </styled.div>
+            </div>
+          </StyledComponent>
+        </styled.div>
+        <styled.div>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-iwsKbI",
+                  "isStatic": false,
+                  "lastClassName": "KrpHW",
+                  "rules": Array [
+                    "
+  max-width: 1020px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 20px 50px;
+",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-iwsKbI",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <div
+              className="sc-iwsKbI KrpHW"
+            >
+              <Review
+                key="title-criticName"
+                rawData={
+                  Object {
+                    "byline": "criticName",
+                    "critics_pick": 1,
+                    "display_title": "title",
+                    "link": Object {
+                      "url": "#",
+                    },
+                    "multimedia": Object {
+                      "src": "#",
+                    },
+                    "publication_date": "01-01-2020",
+                    "summary_short": "description",
+                  }
+                }
+              >
+                <styled.div>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-bZQynM",
+                          "isStatic": false,
+                          "lastClassName": "kPpDNl",
+                          "rules": Array [
+                            "
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 4px;
+  background: #fff;
+
+  &:hover {
+    background: ",
+                            "#f5f5f5",
+                            ";
+  }
+
+  div {
+    strong {
+      display: block;
+      font-size: 20px;
+    }
+
+    small {
+      display: flex;
+      align-items: stretch;
+      padding: 0;
+      margin: 2px 0 0 0;
+      color: #999;
+
+      img {
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        margin: 0 4px 0 0;
+      }
+    }
+
+    span {
+      display: block;
+      margin-top: 15px;
+      color: #000000;
+    }
+
+    a {
+      display: block;
+      margin-top: 15px;
+      color: #999;
+      font-weight: bold;
+
+      &:hover {
+        color: ",
+                            "#191919",
+                            ";
+      }
+    }
+
+    button {
+      display: block;
+      margin-top: 5px;
+      color: #999;
+      background-color: transparent;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        color: ",
+                            "#191919",
+                            ";
+      }
+    }
+  }
+
+  img {
+    margin: 0 0 0 20px;
+    height: 120px;
+
+    @media (max-width: 480px) {
+      display: none;
+    }
+  }
+",
+                          ],
+                        },
+                        "displayName": "styled.div",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-bZQynM",
+                        "target": "div",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <div
+                      className="sc-bZQynM kPpDNl"
+                    >
+                      <div>
+                        <strong>
+                          title
+                        </strong>
+                        <small>
+                          <img
+                            alt="NYTCriticsPick"
+                            src="check.svg"
+                          />
+                          NYT Critic Pick
+                        </small>
+                        <small>
+                          01/01/2020
+                        </small>
+                        <small>
+                          By 
+                          criticName
+                        </small>
+                        <span>
+                          description
+                        </span>
+                        <a
+                          href="#"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          Read review
+                        </a>
+                        <button
+                          className="handleFavoritesButton"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Add to favorites
+                        </button>
+                      </div>
+                      <img
+                        alt="MovieImage"
+                        src="#"
+                      />
+                    </div>
+                  </StyledComponent>
+                </styled.div>
+              </Review>
+              <ComponentLoading>
+                <styled.div>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-gzVnrw",
+                          "isStatic": false,
+                          "lastClassName": "jjzKjH",
+                          "rules": Array [
+                            "
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-top: 20px;
+",
+                          ],
+                        },
+                        "displayName": "styled.div",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-gzVnrw",
+                        "target": "div",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <div
+                      className="sc-gzVnrw jjzKjH"
+                    >
+                      <Loading>
+                        <styled.div>
+                          <StyledComponent
+                            forwardedComponent={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "attrs": Array [],
+                                "componentStyle": ComponentStyle {
+                                  "componentId": "sc-htpNat",
+                                  "isStatic": false,
+                                  "lastClassName": "gdOXhL",
+                                  "rules": Array [
+                                    "
+  display: flex;
+  align-items: flex-end;
+",
+                                  ],
+                                },
+                                "displayName": "styled.div",
+                                "foldedComponentIds": Array [],
+                                "render": [Function],
+                                "styledComponentId": "sc-htpNat",
+                                "target": "div",
+                                "toString": [Function],
+                                "warnTooManyClasses": [Function],
+                                "withComponent": [Function],
+                              }
+                            }
+                            forwardedRef={null}
+                          >
+                            <div
+                              className="sc-htpNat gdOXhL"
+                            >
+                              <styled.div
+                                delay="0s"
+                              >
+                                <StyledComponent
+                                  delay="0s"
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "sc-bxivhb",
+                                        "isStatic": false,
+                                        "lastClassName": "dgfNWE",
+                                        "rules": Array [
+                                          "
+  background-color: black;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  animation: ",
+                                          Keyframes {
+                                            "id": "sc-keyframes-jEZFbd",
+                                            "inject": [Function],
+                                            "name": "jEZFbd",
+                                            "rules": Array [
+                                              "@-webkit-keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                              "@keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                            ],
+                                            "toString": [Function],
+                                          },
+                                          " 0.5s linear infinite;
+  animation-delay: ",
+                                          [Function],
+                                          ";
+",
+                                        ],
+                                      },
+                                      "displayName": "styled.div",
+                                      "foldedComponentIds": Array [],
+                                      "render": [Function],
+                                      "styledComponentId": "sc-bxivhb",
+                                      "target": "div",
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                >
+                                  <div
+                                    className="sc-bxivhb bLhhwi"
+                                  />
+                                </StyledComponent>
+                              </styled.div>
+                              <styled.div
+                                delay=".1s"
+                              >
+                                <StyledComponent
+                                  delay=".1s"
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "sc-bxivhb",
+                                        "isStatic": false,
+                                        "lastClassName": "dgfNWE",
+                                        "rules": Array [
+                                          "
+  background-color: black;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  animation: ",
+                                          Keyframes {
+                                            "id": "sc-keyframes-jEZFbd",
+                                            "inject": [Function],
+                                            "name": "jEZFbd",
+                                            "rules": Array [
+                                              "@-webkit-keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                              "@keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                            ],
+                                            "toString": [Function],
+                                          },
+                                          " 0.5s linear infinite;
+  animation-delay: ",
+                                          [Function],
+                                          ";
+",
+                                        ],
+                                      },
+                                      "displayName": "styled.div",
+                                      "foldedComponentIds": Array [],
+                                      "render": [Function],
+                                      "styledComponentId": "sc-bxivhb",
+                                      "target": "div",
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                >
+                                  <div
+                                    className="sc-bxivhb kfLSIf"
+                                  />
+                                </StyledComponent>
+                              </styled.div>
+                              <styled.div
+                                delay=".2s"
+                              >
+                                <StyledComponent
+                                  delay=".2s"
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "sc-bxivhb",
+                                        "isStatic": false,
+                                        "lastClassName": "dgfNWE",
+                                        "rules": Array [
+                                          "
+  background-color: black;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  animation: ",
+                                          Keyframes {
+                                            "id": "sc-keyframes-jEZFbd",
+                                            "inject": [Function],
+                                            "name": "jEZFbd",
+                                            "rules": Array [
+                                              "@-webkit-keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                              "@keyframes jEZFbd{0%{margin-bottom:0;}50%{margin-bottom:15px;}100%{margin-bottom:0;}}",
+                                            ],
+                                            "toString": [Function],
+                                          },
+                                          " 0.5s linear infinite;
+  animation-delay: ",
+                                          [Function],
+                                          ";
+",
+                                        ],
+                                      },
+                                      "displayName": "styled.div",
+                                      "foldedComponentIds": Array [],
+                                      "render": [Function],
+                                      "styledComponentId": "sc-bxivhb",
+                                      "target": "div",
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                >
+                                  <div
+                                    className="sc-bxivhb dgfNWE"
+                                  />
+                                </StyledComponent>
+                              </styled.div>
+                            </div>
+                          </StyledComponent>
+                        </styled.div>
+                      </Loading>
+                    </div>
+                  </StyledComponent>
+                </styled.div>
+              </ComponentLoading>
+            </div>
+          </StyledComponent>
+        </styled.div>
+      </Reviews>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Reviews page should render without crashing 4`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "testKey",
+          "pathname": "/reviews",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "testKey",
+              "pathname": "/reviews",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/reviews",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Reviews>
+        <styled.div>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-htoDjs",
+                  "isStatic": false,
+                  "lastClassName": "ieqtDf",
+                  "rules": Array [
+                    "
+  background: #e6e6e6;
+  padding: 0 30px;
+",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-htoDjs",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <div
+              className="sc-htoDjs ieqtDf"
+            >
+              <styled.div>
+                <StyledComponent
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-dnqmqq",
+                        "isStatic": false,
+                        "lastClassName": "cDUlEM",
+                        "rules": Array [
+                          "
+  max-width: 900px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  margin: 0 auto;
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+
+    input,
+    select {
+      background: rgba(0, 0, 0, 0.1);
+      border: 0;
+      border-radius: 4px;
+      padding: 10px 15px;
+      margin: 15px 0 15px 0;
+    }
+
+    label {
+      input,
+      span {
+        font-size: smaller;
+        margin: 0 5px 0 0;
+        padding: 0;
+      }
+
+      input {
+        vertical-align: sub;
+      }
+    }
+
+    button {
+      height: 44px;
+      margin: 15px 0 15px 0;
+      padding: 10px 20px;
+      border: 0;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: #999;
+      transition: background 0.2s;
+
+      &:hover {
+        background: ",
+                          "#191919",
+                          ";
+      }
+    }
+
+    @media (min-width: 900px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+",
+                        ],
+                      },
+                      "displayName": "styled.div",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "sc-dnqmqq",
+                      "target": "div",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                >
+                  <div
+                    className="sc-dnqmqq cDUlEM"
+                  >
+                    <form
+                      autoComplete="off"
+                      id="filter-form"
+                      onSubmit={[Function]}
+                    >
+                      <select
+                        id="order-input"
+                        name="order"
+                        onChange={[Function]}
+                        value=""
+                      >
+                        <option
+                          value=""
+                        >
+                          Order
+                        </option>
+                        <option
+                          value="by-title"
+                        >
+                          Order by Title
+                        </option>
+                        <option
+                          value="by-publication-date"
+                        >
+                          Order by Publication date
+                        </option>
+                        <option
+                          value="by-opening-date"
+                        >
+                          Order by Opening date
+                        </option>
+                      </select>
+                      <input
+                        id="query-input"
+                        name="query"
+                        onChange={[Function]}
+                        placeholder="Keyword"
+                        type="text"
+                        value=""
+                      />
+                      <input
+                        id="reviewer-input"
+                        name="reviewer"
+                        onChange={[Function]}
+                        placeholder="Reviewer"
+                        type="text"
+                        value=""
+                      />
+                      <label
+                        htmlFor="critics-pick-input"
+                      >
+                        <input
+                          checked=""
+                          id="critics-pick-input"
+                          name="criticsPick"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
+                        <span>
+                          NYT Critic’s Pick
+                        </span>
+                      </label>
+                      <button
+                        type="submit"
+                      >
+                        Search
+                      </button>
+                    </form>
+                  </div>
+                </StyledComponent>
+              </styled.div>
+            </div>
+          </StyledComponent>
+        </styled.div>
+        <styled.div>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-iwsKbI",
+                  "isStatic": false,
+                  "lastClassName": "KrpHW",
+                  "rules": Array [
+                    "
+  max-width: 1020px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 20px 50px;
+",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-iwsKbI",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <div
+              className="sc-iwsKbI KrpHW"
+            >
+              <Review
+                key="title-criticName"
+                rawData={
+                  Object {
+                    "byline": "criticName",
+                    "critics_pick": 1,
+                    "display_title": "title",
+                    "link": Object {
+                      "url": "#",
+                    },
+                    "multimedia": Object {
+                      "src": "#",
+                    },
+                    "publication_date": "01-01-2020",
+                    "summary_short": "description",
+                  }
+                }
+              >
+                <styled.div>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-bZQynM",
+                          "isStatic": false,
+                          "lastClassName": "kPpDNl",
+                          "rules": Array [
+                            "
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 4px;
+  background: #fff;
+
+  &:hover {
+    background: ",
+                            "#f5f5f5",
+                            ";
+  }
+
+  div {
+    strong {
+      display: block;
+      font-size: 20px;
+    }
+
+    small {
+      display: flex;
+      align-items: stretch;
+      padding: 0;
+      margin: 2px 0 0 0;
+      color: #999;
+
+      img {
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        margin: 0 4px 0 0;
+      }
+    }
+
+    span {
+      display: block;
+      margin-top: 15px;
+      color: #000000;
+    }
+
+    a {
+      display: block;
+      margin-top: 15px;
+      color: #999;
+      font-weight: bold;
+
+      &:hover {
+        color: ",
+                            "#191919",
+                            ";
+      }
+    }
+
+    button {
+      display: block;
+      margin-top: 5px;
+      color: #999;
+      background-color: transparent;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        color: ",
+                            "#191919",
+                            ";
+      }
+    }
+  }
+
+  img {
+    margin: 0 0 0 20px;
+    height: 120px;
+
+    @media (max-width: 480px) {
+      display: none;
+    }
+  }
+",
+                          ],
+                        },
+                        "displayName": "styled.div",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-bZQynM",
+                        "target": "div",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <div
+                      className="sc-bZQynM kPpDNl"
+                    >
+                      <div>
+                        <strong>
+                          title
+                        </strong>
+                        <small>
+                          <img
+                            alt="NYTCriticsPick"
+                            src="check.svg"
+                          />
+                          NYT Critic Pick
+                        </small>
+                        <small>
+                          01/01/2020
+                        </small>
+                        <small>
+                          By 
+                          criticName
+                        </small>
+                        <span>
+                          description
+                        </span>
+                        <a
+                          href="#"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          Read review
+                        </a>
+                        <button
+                          className="handleFavoritesButton"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Add to favorites
+                        </button>
+                      </div>
+                      <img
+                        alt="MovieImage"
+                        src="#"
+                      />
+                    </div>
+                  </StyledComponent>
+                </styled.div>
+              </Review>
+            </div>
+          </StyledComponent>
+        </styled.div>
       </Reviews>
     </Router>
   </MemoryRouter>
