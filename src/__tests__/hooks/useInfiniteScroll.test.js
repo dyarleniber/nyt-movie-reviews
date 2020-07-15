@@ -1,4 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
+
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 describe('useInfiniteScroll hook', () => {
