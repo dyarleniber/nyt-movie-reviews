@@ -34,6 +34,8 @@ The code base is covered by automated tests with [Jest](https://jestjs.io) and [
 
 The project is hosted on [GitHub Pages](https://pages.github.com). And a CI/CD workflow created on [GitHub Actions](https://github.com/features/actions) is responsible for automatically test the source code, generate a coverage report and upload it on [Codecov](https://codecov.io), build and deploy the project on [GitHub Pages](https://pages.github.com). All these jobs are activated by a push or pull request event on master branch.
 
+![preview-video](https://user-images.githubusercontent.com/40317398/87715678-17600280-c784-11ea-8d2e-107e4484cb10.gif)
+
 ## :gear: Configuration
 
 To clone and run this application, you'll need to have [Git](https://git-scm.com) and [Node.js v10.16](https://nodejs.org) or higher installed on your computer.
