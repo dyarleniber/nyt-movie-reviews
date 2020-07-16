@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  :movie_camera: Application for search New York Times movie reviews and get movie critics using JavaScript, React, Redux, Hooks, redux-saga and styled-components.
+  :movie_camera: Application for search New York Times movie reviews and get movie critics using JavaScript, React, Redux, Hooks, redux-saga, styled-components and Jest.
 </p>
 
 <p align="center">
