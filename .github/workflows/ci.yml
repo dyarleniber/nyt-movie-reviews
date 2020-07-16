@@ -40,6 +40,12 @@ jobs:
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
 
+    - name: Create the .env file
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_REACT_APP_API_KEY: ${{ secrets.API_KEY }}
+        file_name: .env
+
     - name: Build
       run: npm run build
 
